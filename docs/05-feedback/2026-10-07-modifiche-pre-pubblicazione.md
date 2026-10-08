@@ -625,3 +625,21 @@ Il listino dettagliato è stato sostituito da **quattro card** con il solo prezz
 Sotto, una riga di testo raccoglie le condizioni: onicofagiche e refill dopo la quinta settimana + 5 €, rimozioni e riparazioni a partire da 5 €, riparazione entro due settimane gratuita, preventivo esatto in sede.
 
 Sezione rinominata da "Listino / Prezzi del Nail Center" a **"Prezzi / Quanto costa"**, coerente con il fatto che non è più un listino. Rimosso il CSS `.listino-*` ormai inutilizzato su questa pagina.
+
+---
+
+## 27. Scelta sede: un canale per pulsante (8 ottobre 2026)
+
+La finestra di scelta sede mostrava per ogni sede **sia** il telefono **sia** il WhatsApp, indipendentemente dal pulsante premuto: chi cliccava "Chiama Ora" si trovava davanti quattro pulsanti invece di due.
+
+Ora la finestra ha tre modalità, tutte sulla stessa struttura:
+
+| Pulsante premuto | Titolo | Cosa mostra |
+|---|---|---|
+| Chiama Ora | "Quale sede vuoi chiamare?" | solo i due numeri di telefono |
+| WhatsApp | "A quale sede vuoi scrivere?" | solo i due numeri WhatsApp |
+| Treatwell | "In quale sede vuoi prenotare?" | solo le due schede Treatwell |
+
+`site.js` espone quindi `lsCallChoice()`, `lsWaChoice()` e `lsTreatwellChoice()`. Le etichette dei pulsanti nella finestra non ripetono più la parola "Chiama" o "WhatsApp", che è già nel titolo: mostrano direttamente il numero.
+
+Nelle pagine, i 61 CTA WhatsApp puntano a `lsWaChoice` e i 41 CTA telefono a `lsCallChoice`. La distinzione è stata fatta sull'origine del markup: gli `<a>` nati da link `wa.me` e i pulsanti con classe `btn-wa` / `hbc-wa` / `hib-btn-wa` sono WhatsApp, i `<button>` con l'icona del telefono sono chiamate.

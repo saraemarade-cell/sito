@@ -43,19 +43,23 @@ window.LS_SEDI = [
   var BTN_TEL = BTN + 'background:#ED1E88;color:#fff;';
   var BTN_WA = BTN + 'background:#25D366;color:#fff;';
   var BTN_OFF = BTN + 'background:#f0f0f0;color:#999;cursor:not-allowed;';
-
-  function sedeBlock(s) {
-    var tel = s.tel
-      ? '<a href="tel:' + s.tel + '" style="' + BTN_TEL + '">' + ICON_TEL + 'Chiama ' + s.telLabel + '</a>'
-      : '<span style="' + BTN_OFF + '" title="Numero da inserire">' + ICON_TEL + 'Telefono — numero da inserire</span>';
-    var wa = s.wa
-      ? '<a href="https://wa.me/' + s.wa + '" target="_blank" rel="noopener" style="' + BTN_WA + '">' + ICON_WA + 'WhatsApp ' + s.waLabel + '</a>'
-      : '<span style="' + BTN_OFF + '" title="Numero da inserire">' + ICON_WA + 'WhatsApp — numero da inserire</span>';
+  /* Un blocco per sede, con il solo canale richiesto: niente doppioni. */
+  function sedeBlock(s, mode) {
+    var azione;
+    if (mode === 'wa') {
+      azione = s.wa
+        ? '<a href="https://wa.me/' + s.wa + '" target="_blank" rel="noopener" style="' + BTN_WA + '">' + ICON_WA + s.waLabel + '</a>'
+        : '<span style="' + BTN_OFF + '" title="Numero da inserire">' + ICON_WA + 'Numero da inserire</span>';
+    } else {
+      azione = s.tel
+        ? '<a href="tel:' + s.tel + '" style="' + BTN_TEL + '">' + ICON_TEL + s.telLabel + '</a>'
+        : '<span style="' + BTN_OFF + '" title="Numero da inserire">' + ICON_TEL + 'Numero da inserire</span>';
+    }
     return '<div style="text-align:left;padding:16px 0;border-top:1px solid #eee;">' +
              '<div style="font-size:15px;font-weight:800;color:#111;margin-bottom:2px;">LOVESUN ' + s.nome.toUpperCase() + '</div>' +
              '<div style="font-size:12px;color:#888;margin-bottom:4px;">' + s.indirizzo + ', ' + s.nome + ' (' + s.prov + ')</div>' +
              '<div style="font-size:11px;color:#aaa;line-height:1.5;margin-bottom:12px;">' + s.orari + '</div>' +
-             '<div style="display:flex;flex-direction:column;gap:8px;">' + tel + wa + '</div>' +
+             azione +
            '</div>';
   }
 
@@ -88,15 +92,23 @@ window.LS_SEDI = [
   }
 
   function render(mode) {
-    var titolo = mode === 'treatwell' ? 'In quale sede vuoi prenotare?' : 'Quale sede vuoi contattare?';
-    var sub = mode === 'treatwell' ? 'Ogni sede ha la sua agenda su Treatwell' : 'Ogni sede ha i suoi numeri';
-    var blocchi = window.LS_SEDI.map(mode === 'treatwell' ? treatwellBlock : sedeBlock).join('');
+    var titoli = {
+      tel: ['Quale sede vuoi chiamare?', 'Ogni sede ha il suo numero di telefono'],
+      wa: ['A quale sede vuoi scrivere?', 'Ogni sede ha il suo numero WhatsApp'],
+      treatwell: ['In quale sede vuoi prenotare?', 'Ogni sede ha la sua agenda su Treatwell']
+    };
+    var t = titoli[mode] || titoli.tel;
+    var blocchi = window.LS_SEDI.map(function (s) {
+      return mode === 'treatwell' ? treatwellBlock(s) : sedeBlock(s, mode);
+    }).join('');
+    var titolo = t[0], sub = t[1];
     modal.querySelector('[data-ls-title]').textContent = titolo;
     modal.querySelector('[data-ls-sub]').textContent = sub;
     modal.querySelector('[data-ls-body]').innerHTML = blocchi;
   }
 
-  window.lsCallChoice = function (e) { if (e) { e.preventDefault(); } render('contatti'); modal.style.display = 'flex'; };
+  window.lsCallChoice = function (e) { if (e) { e.preventDefault(); } render('tel'); modal.style.display = 'flex'; };
+  window.lsWaChoice = function (e) { if (e) { e.preventDefault(); } render('wa'); modal.style.display = 'flex'; };
   window.lsTreatwellChoice = function (e) { if (e) { e.preventDefault(); } render('treatwell'); modal.style.display = 'flex'; };
   window.lsCloseCall = function () { modal.style.display = 'none'; };
   document.addEventListener('click', function (e) { if (e.target === modal) { window.lsCloseCall(); } });
@@ -270,7 +282,7 @@ window.LS_SEDI = [
     var href = el.dataset.lsHref;
     if (!href) {
       /* Sede non ancora scelta: invece di mandare a una sede a caso, la facciamo scegliere. */
-      if (el.dataset.lsKind === 'tw') { window.lsTreatwellChoice(e); } else { window.lsCallChoice(e); }
+      if (el.dataset.lsKind === 'tw') { window.lsTreatwellChoice(e); } else { window.lsWaChoice(e); }
       return;
     }
     window.open(href, '_blank', 'noopener');
