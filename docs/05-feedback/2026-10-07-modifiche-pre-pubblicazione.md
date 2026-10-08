@@ -670,3 +670,25 @@ Rimossa la nota gialla "⚠️ WhatsApp Carugate in attesa dal centro" da `conta
 - **D5** prezzi dei servizi nuovi: chiuso con il listino 2026
 - **D6** immagini T-Shape 2 e foto del lettino C20: ancora da fornire
 - URL Treatwell: completati · pacchetti laser, ceretta e abbonamenti solarium: completati
+
+---
+
+## 29. Pagine sede: contatti diretti, senza passaggi intermedi (8 ottobre 2026)
+
+Sulle pagine `sede-bregnano.html` e `sede-carugate.html` i pulsanti WhatsApp aprivano ancora la finestra di scelta sede, che su una pagina dedicata a una sola sede è un passaggio a vuoto: la sede è già stata scelta aprendo la pagina.
+
+Ora **tutti** i contatti di quelle due pagine puntano direttamente al numero della sede:
+
+| | Bregnano | Carugate |
+|---|---|---|
+| WhatsApp (5 CTA per pagina) | `wa.me/393473983337` | `wa.me/393311093564` |
+| Telefono (3 CTA per pagina) | `tel:0314682567` | `tel:0277095069` |
+
+Nessuna delle due pagine richiama più `lsCallChoice` o `lsWaChoice`. Verificato che su ciascuna compaiano **solo** i numeri della propria sede.
+
+### Due casi risolti lungo la strada
+- Il pulsante "Scrivici su WhatsApp" nell'hero di Bregnano (`btn-wa-hero`) **non aveva alcuna destinazione**: non era collegato né alla finestra né a un link, quindi non faceva nulla. Ora apre WhatsApp.
+- Lo stesso pulsante su Carugate (`hib-btn-wa`) apriva la finestra di scelta: ora apre WhatsApp direttamente.
+
+### Perché i form di queste pagine non hanno il campo sede
+È corretto che non lo abbiano: la pagina è già quella della sede. Per la stessa ragione i pulsanti non devono chiederla di nuovo.
