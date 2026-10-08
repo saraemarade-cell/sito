@@ -141,25 +141,69 @@ window.LS_SEDI = [
     if (!logo) return;
     logo.src = (h.classList.contains('scrolled') || h.classList.contains('nav-open')) ? dark : light;
   }
+  /* L'altezza reale dell'header diventa una variabile CSS: il pannello del
+     menu parte esattamente sotto la barra, qualunque sia lo zoom. */
+  function misuraHeader() {
+    document.documentElement.style.setProperty('--header-h', (h.offsetHeight || 64) + 'px');
+  }
+  misuraHeader();
+  window.addEventListener('resize', misuraHeader);
+
+  /* Con il pannello aperto la pagina sotto non deve scorrere. */
+  function bloccaScroll(attivo) {
+    if (attivo) {
+      window.__lsScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + window.__lsScrollY + 'px';
+      document.body.style.width = '100%';
+    } else if (document.body.style.position === 'fixed') {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, window.__lsScrollY || 0);
+    }
+  }
+
+  function chiudiMenu() {
+    if (!h.classList.contains('nav-open')) return;
+    h.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    bloccaScroll(false);
+    update();
+    setLogo();
+  }
+  window.lsChiudiMenu = chiudiMenu;
+
   toggle.addEventListener('click', function () {
     var open = h.classList.toggle('nav-open');
     /* Reuse the proven "scrolled" white-header state so the open drawer
        is always solid and legible, even at the top of the page. */
     if (open) {
       h.classList.add('scrolled');
+      misuraHeader();
     } else {
       update();
     }
+    bloccaScroll(open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     setLogo();
   });
-  /* Close the drawer after tapping a real navigation link */
+
+  /* Chiusura: tocco sul velo, tasto Esc. */
+  document.addEventListener('click', function (e) {
+    if (!h.classList.contains('nav-open')) return;
+    if (!h.contains(e.target)) { chiudiMenu(); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { chiudiMenu(); }
+  });
+  /* Il tocco su un link di navigazione chiude il pannello e sblocca lo scroll.
+     Il link "Estetica Base" (href="#") apre il sottomenu: non deve chiudere. */
   if (nav) {
     nav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
-        h.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        setLogo();
+        if (a.getAttribute('href') === '#') { return; }
+        chiudiMenu();
       });
     });
   }
@@ -167,7 +211,7 @@ window.LS_SEDI = [
   function threshold() {
     /* Mobile/tablet: header must become solid as soon as the page leaves the
        very top — transparent ONLY when scrollY is 0. */
-    if (window.innerWidth <= 960) return 2;
+    if (window.innerWidth <= 1024) return 2;
     var hh = h.offsetHeight || 70;
     if (hero) return Math.max(40, hero.offsetHeight - hh - 10);
     return window.innerHeight * 0.6;
@@ -184,10 +228,10 @@ window.LS_SEDI = [
   update();
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 960 && h.classList.contains('nav-open')) {
-      h.classList.remove('nav-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
+    /* Tornando alla barra orizzontale il pannello va chiuso e lo scroll sbloccato,
+     altrimenti la pagina resta congelata. 1024px = soglia dell'hamburger. */
+    if (window.innerWidth > 1024) { chiudiMenu(); }
+    misuraHeader();
     update();
   });
 })();

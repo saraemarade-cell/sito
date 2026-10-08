@@ -275,7 +275,7 @@ img, iframe, video, svg { max-width: 100%; }
 }
 
 /* ---------- HAMBURGER NAV (≤960px) ---------- */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   header {
     flex-wrap: wrap !important;
     align-items: center !important;
@@ -531,7 +531,7 @@ header.scrolled nav span.active { color: var(--magenta) !important; }
 /* ═══════════════ MOBILE MENU — CLEAN DRAWER (≤960px) ═══════════════
    Remove leftover dashed underlines from page <style> blocks, keep tidy
    spacing, and guarantee the drawer + its CTAs stay inside the viewport. */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   /* No dashed/odd borders on any nav element inside the open drawer */
   header nav span, header nav a, header .nav-dropdown > span {
     border-bottom-style: solid !important;
@@ -886,7 +886,7 @@ body.home .hero-overlay h1.wf { line-height: 1.05 !important; }
 /* ═══════════════ CLIENT REVISIONS — 07/07 (RESPONSIVE / MOBILE) ═══════════════ */
 
 /* ── 1 · Menu drawer mobile: CTA centrate, stessa larghezza, layout stabile ── */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   header.nav-open .header-actions {
     justify-content: center !important;
     align-items: stretch !important;
@@ -1025,7 +1025,7 @@ body.home .hero-overlay h1.wf { line-height: 1.05 !important; }
 }
 
 /* ── 2 · Menu mobile: pulizia bordi/allineamenti in TUTTI gli stati ── */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   /* Dropdown/submenu link rows: sono flex ma senza width — su alcune pagine il
      bordo inferiore si ferma alla larghezza del contenuto invece che alla riga */
   header .dropdown-menu a, header .submenu a { width: 100% !important; box-sizing: border-box !important; }
@@ -1279,3 +1279,122 @@ html, body { max-width: 100%; overflow-x: clip; }
 /* ---------- 6. Immagini e mappe: mai più larghe dello schermo ---------- */
 img, iframe, video, svg { max-width: 100%; }
 .map-frame, .sede-map { max-width: 100%; }
+
+/* ═══════════════════════════════════════════════════════════
+   MENU MOBILE — PANNELLO
+   Prima il menu aperto si accodava dentro l'header come righe: l'header
+   diventava alto quanto tutto il menu, e con lo zoom o la voce "Servizi"
+   espansa le ultime voci finivano fuori schermo, irraggiungibili.
+   Ora è un pannello con altezza propria e scorrimento interno.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  /* L'hamburger compare già a 1024px: fra 961 e 1024 la barra orizzontale
+     era troppo stretta per le voci e andava a capo in modo disordinato. */
+  .nav-toggle { display: flex !important; }
+  header > nav,
+  header > .header-actions { display: none; }
+
+  header {
+    position: sticky; top: 0;
+    display: flex !important; flex-wrap: nowrap !important;
+    align-items: center !important; justify-content: space-between !important;
+    padding: 10px 18px !important; gap: 12px !important;
+  }
+
+  /* Pannello: parte sotto la barra, non la copre, e scorre se è lungo. */
+  header.nav-open nav {
+    display: flex !important;
+    position: fixed; left: 0; right: 0; top: var(--header-h, 64px);
+    max-height: calc(100vh - var(--header-h, 64px));
+    max-height: calc(100dvh - var(--header-h, 64px));
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    background: #fff !important;
+    padding: 6px 18px 0 !important;
+    box-shadow: 0 18px 40px rgba(99,12,98,.18);
+    border-top: 1px solid var(--pink-light);
+    z-index: 999;
+  }
+  header.nav-open .header-actions {
+    display: flex !important;
+    position: fixed; left: 0; right: 0; bottom: 0;
+    background: #fff !important;
+    padding: 12px 18px calc(12px + env(safe-area-inset-bottom)) !important;
+    box-shadow: 0 -10px 28px rgba(99,12,98,.12);
+    border-top: 1px solid var(--pink-light);
+    gap: 10px !important; z-index: 1000;
+  }
+  header.nav-open .header-actions > * { flex: 1 1 0; min-width: 0; }
+  header.nav-open .header-actions button { width: 100%; }
+
+  /* Spazio in fondo al pannello, così l'ultima voce non finisce
+     sotto la barra dei pulsanti fissata in basso. */
+  header.nav-open nav::after { content: ''; display: block; height: 92px; }
+
+  /* Velo sul contenuto: il menu si legge, la pagina sotto no. */
+  header.nav-open::after {
+    content: ''; position: fixed; inset: var(--header-h, 64px) 0 0 0;
+    background: rgba(58,33,56,.45); z-index: 998;
+  }
+
+  /* Righe del menu: alte, leggibili, con separatore pieno. */
+  header.nav-open nav > span,
+  header.nav-open .nav-dropdown > span {
+    padding: 16px 2px !important;
+    font-size: 17px !important; font-weight: 600 !important;
+    border-bottom: 1px solid var(--pink-light) !important;
+  }
+  header.nav-open .dropdown-menu a,
+  header.nav-open .submenu a {
+    padding: 13px 14px !important; font-size: 15px !important;
+    border-radius: 8px;
+  }
+  header.nav-open .dropdown-menu { padding: 4px 0 10px !important; }
+  header.nav-open .submenu { padding-left: 14px !important; }
+  /* La freccia del dropdown ruota quando è aperto: si capisce lo stato. */
+  header.nav-open .nav-dropdown > span::after { transition: transform .2s ease; }
+  header.nav-open .nav-dropdown.open > span { color: var(--magenta) !important; }
+}
+
+/* Su schermi molto bassi (zoom alto) il pannello resta comunque scorrevole
+   e i pulsanti in fondo non mangiano metà schermo. */
+@media (max-width: 1024px) and (max-height: 520px) {
+  header.nav-open .header-actions { position: static; box-shadow: none; border-top: none; }
+  header.nav-open nav::after { height: 12px; }
+}
+
+/* ---------- 7. Ancore interne sotto l'header fisso ---------- */
+/* I link della sidebar FAQ (#laser, #solarium, …) portavano il titolo di
+   sezione esattamente sotto la barra fissa: sembrava che la sezione
+   mancasse. scroll-margin-top lo compensa, anche con lo zoom. */
+[id] { scroll-margin-top: calc(var(--header-h, 64px) + 16px); }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- 8. Niente sovrapposizioni fra sezioni ---------- */
+/* Le sezioni non devono mai avere un'altezza fissa più bassa del contenuto:
+   con lo zoom il testo cresce rispetto al box e trabocca su quella dopo. */
+section, .section-full, .faq-section, .form-section-bg, .prenota-bg,
+.trust-bar, .cta-finale-bg { height: auto !important; }
+
+/* Le card con immagine a proporzione fissa restano tali, ma il testo che
+   le segue non viene mai coperto. */
+.card, .servizio-card, .pacchetto-card, .abbonamento-card, .prezzo-card,
+.offerta-card, .sede-card, .listino-col, .beneficio-card {
+  height: auto !important;
+}
+
+
+/* ---------- 9. Pulsante WhatsApp flottante ---------- */
+/* Con il pannello del menu aperto si sovrapponeva ai pulsanti in fondo:
+   mentre il menu è aperto sparisce. Su mobile sale sopra la barra fissa
+   dei pulsanti e rispetta la safe area dei telefoni con il notch. */
+header.nav-open ~ .wa-float,
+body:has(header.nav-open) .wa-float { display: none !important; }
+@media (max-width: 1024px) {
+  .wa-float {
+    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    right: 18px !important;
+    width: 52px !important; height: 52px !important;
+  }
+}

@@ -728,3 +728,33 @@ Da provare nel browser, in questo ordine:
 2. la stessa pagina a 1100px di larghezza;
 3. telefono reale o emulazione a 375px: toccare un campo del form non deve far ingrandire la pagina;
 4. qualunque pagina: l'header deve restare attaccato in alto scorrendo (verifica che `overflow-x: clip` non abbia rotto lo sticky).
+
+---
+
+## 31. Menu mobile ed esperienza su schermi ridotti (8 ottobre 2026)
+
+### Il menu era righe dentro l'header, non un pannello
+Aprendo l'hamburger, le voci si accodavano **dentro** la barra sticky, che diventava alta quanto tutto il menu. Con la voce "Servizi" espansa (9 link più un sottomenu) o con lo zoom, le ultime voci finivano fuori schermo e non c'era modo di raggiungerle: nessuno scorrimento interno.
+
+Ora è un pannello vero:
+- parte **sotto** la barra, non la copre: l'altezza reale dell'header viene misurata da `site.js` e scritta nella variabile CSS `--header-h`, così resta corretta a ogni zoom;
+- ha `max-height: calc(100dvh - header)` e **scorrimento interno**: qualunque sia la lunghezza del menu, tutte le voci si raggiungono;
+- i pulsanti "Chiama Ora / WhatsApp / Prenota" stanno in una **barra fissa in fondo**, sempre a portata di pollice, con `env(safe-area-inset-bottom)` per i telefoni con il notch;
+- un velo scurisce la pagina sotto;
+- righe più alte (16px di padding, testo 17px) e separatori a tutta larghezza.
+
+### Comportamento
+Aggiunto in `site.js`: con il pannello aperto **la pagina sotto non scorre più** (prima scorrendo sul menu si muoveva la pagina dietro), e tornando indietro si riprende dal punto esatto. Il pannello si chiude toccando il velo, premendo Esc, scegliendo una voce o allargando la finestra oltre i 1024px — e in tutti i casi lo scorrimento viene sbloccato.
+
+Il link "Estetica Base", che serve solo ad aprire il sottomenu, non chiude più il pannello.
+
+### Hamburger anticipato a 1024px
+Era a 960px: fra 961 e 1024 la barra orizzontale non aveva spazio per tutte le voci e andava a capo in modo disordinato. Tutte le soglie del menu (CSS e JS) ora sono allineate a 1024px.
+
+### Sezioni tagliate o sovrapposte
+- **Ancore interne**: i link della sidebar FAQ (`#laser`, `#solarium`, …) portavano il titolo di sezione esattamente sotto la barra fissa, dando l'impressione che la sezione mancasse. Aggiunto `scroll-margin-top` calcolato sull'altezza reale dell'header.
+- **Altezze fisse**: sezioni e card non possono più avere un'altezza minore del contenuto (`height: auto`), che con lo zoom era la causa del testo che tracimava sulla sezione successiva.
+- **Pulsante WhatsApp flottante**: si sovrapponeva alla barra dei pulsanti del menu. Ora sparisce mentre il menu è aperto e su mobile rispetta la safe area.
+
+### ⚠️ Di nuovo: verifica visiva non eseguita
+L'anteprima non carica `brand.css` né esegue `site.js` sui file locali. Da provare nel browser: aprire il menu su telefono, espandere "Servizi", controllare che si scorra fino all'ultima voce e che la pagina dietro resti ferma; poi chiudere con il velo, con Esc e scegliendo una voce.
