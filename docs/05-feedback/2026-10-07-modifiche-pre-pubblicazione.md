@@ -692,3 +692,39 @@ Nessuna delle due pagine richiama più `lsCallChoice` o `lsWaChoice`. Verificato
 
 ### Perché i form di queste pagine non hanno il campo sede
 È corretto che non lo abbiano: la pagina è già quella della sede. Per la stessa ragione i pulsanti non devono chiederla di nuovo.
+
+---
+
+## 30. Passaggio responsive (8 ottobre 2026)
+
+Tutte le regole nuove stanno in fondo a `brand.css`, che è collegato **dopo** il `<style>` di pagina: a parità di specificità vince per ordine, e vale su tutte le 16 pagine senza toccarle una per una.
+
+### Il form nella hero non viene più tagliato
+Causa: la hero delle pagine servizio era alta `100vh` fissi. Lo zoom del browser riduce l'altezza del viewport in px CSS, mentre il form resta della sua dimensione: oltre un certo zoom il form finiva sotto il bordo della hero.
+
+- `.hero:has(.hero-booking)` ora ha `height: auto`, `max-height: none`, `overflow: visible`: la hero si allunga invece di tagliare.
+- `@media (max-height: 800px)` — zoom alto, laptop 13", finestra affiancata: la hero smette di pretendere una schermata intera e si dimensiona sul contenuto.
+- Nella versione impilata (≤1024px) il blocco di testo aveva `min-height: 100vh`: il form esisteva ma restava una schermata più in basso. Su viewport basso scende a 320px, così il form si vede subito.
+- Fascia **1025–1180px** (tipica con zoom 125–150%): la colonna del form passa da `360px` fissi a `minmax(0, 320px)`, così si restringe invece di traboccare.
+- Rete di sicurezza sopra i 1025px: `max-height: calc(100vh - 140px)` con scorrimento interno al form.
+
+### Zoom su iOS — la causa più frequente di "form tagliato" su telefono
+Safari su iOS ingrandisce la pagina quando si tocca un campo con `font-size` inferiore a 16px, e da lì il layout resta spostato. I campi del sito erano a 13px. Sotto i 768px tutti i campi passano a **16px**.
+
+### Griglie aggiunte dopo la prima stesura
+`prezzi-grid`, `listino-wrap`, `abbonamenti-grid.quattro`, `pacchetti-grid.quattro` non erano nella scala di breakpoint del resto del sito. Ora: 4 colonne → 2 sotto i 1100px → 1 sotto i 768px. Sotto i 480px le righe di listino vanno a capo invece di accavallare nome e prezzo.
+
+### Aree toccabili
+Su puntatore grossolano (`pointer: coarse`) tutti i comandi hanno `min-height: 44px`: pulsanti, domande FAQ, pill delle aree, hamburger.
+
+### Scorrimento orizzontale
+`overflow-x: clip` su `html, body`. **Non `hidden`**: `hidden` crea un contenitore di scorrimento e disattiverebbe il `position: sticky` dell'header, presente su tutte le pagine.
+
+### ⚠️ Verifica non eseguita
+Il pannello di anteprima carica i file locali come snapshot statici: non applica `brand.css` né esegue JavaScript, quindi **non è stato possibile verificare visivamente** il risultato. Le regole sono scritte sull'analisi del CSS esistente.
+
+Da provare nel browser, in questo ordine:
+1. una pagina servizio (es. `pulizia-viso.html`) a zoom 125%, 150% e 175%: il form deve restare intero e visibile;
+2. la stessa pagina a 1100px di larghezza;
+3. telefono reale o emulazione a 375px: toccare un campo del form non deve far ingrandire la pagina;
+4. qualunque pagina: l'header deve restare attaccato in alto scorrendo (verifica che `overflow-x: clip` non abbia rotto lo sticky).

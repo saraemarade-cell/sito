@@ -1169,3 +1169,113 @@ html body .hero.hero--compact {
   }
   .hero.hero--compact .hero-textbox { min-height: 0 !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — PASSAGGIO FINALE
+   Due obiettivi:
+   1. il form nella hero delle pagine servizio non deve MAI essere
+      tagliato o finire fuori schermo, nemmeno con lo zoom del browser;
+   2. le griglie introdotte dopo la prima stesura devono rientrare
+      nella stessa scala di breakpoint di tutte le altre.
+   Ultimo blocco del file: a parità di specificità vince per ordine.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ---------- 1. La hero con il form non taglia mai il contenuto ---------- */
+/* Lo zoom del browser riduce l'altezza del viewport in px CSS: un'altezza
+   fissa a 100vh diventa più bassa del form, che resterebbe nascosto sotto
+   il bordo. Con height:auto la hero si allunga invece di tagliare.          */
+.hero:has(.hero-booking) {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.hero:has(.hero-booking) .hero-booking,
+.hero-booking-card { overflow: visible !important; }
+
+/* Viewport basso (zoom elevato, laptop 13", finestra affiancata):
+   la hero smette di pretendere un'intera schermata e si dimensiona
+   sul contenuto, così il form resta visibile senza scorrere. */
+@media (max-height: 800px) {
+  .hero:has(.hero-booking) { min-height: 0 !important; }
+  .hero:has(.hero-booking) .hero-booking { padding-top: 110px !important; padding-bottom: 40px !important; }
+}
+@media (max-height: 800px) and (max-width: 1024px) {
+  /* Nella versione impilata il testo occupava una schermata intera prima
+     del form: lo riduciamo al suo contenuto. */
+  .hero:has(.hero-booking) .hero-parallax,
+  .hero:has(.hero-booking) .hero-overlay-dark,
+  .hero:has(.hero-booking) > div[style*="rgba(0,0,0"] { height: auto !important; min-height: 320px !important; }
+  .hero:has(.hero-booking) .hero-booking > div:first-child,
+  .hero:has(.hero-booking) .hero-booking > .hero-text-col { min-height: 320px !important; }
+}
+
+/* Fascia intermedia 1025–1180px (tipica con zoom 125–150%): la colonna
+   del form resta accanto al testo ma si restringe invece di traboccare. */
+@media (min-width: 1025px) and (max-width: 1180px) {
+  .hero-booking { grid-template-columns: 1fr minmax(0, 320px) !important; gap: 28px !important; padding-left: 24px !important; padding-right: 24px !important; }
+}
+
+/* Il form non deve mai superare l'altezza utile: se il contenuto è troppo,
+   scorre al suo interno invece di uscire dalla hero. Ultima rete di sicurezza. */
+@media (min-width: 1025px) {
+  .hero-booking-card { max-height: calc(100vh - 140px); overflow-y: auto; }
+}
+
+/* ---------- 2. Griglie aggiunte dopo la prima stesura ---------- */
+@media (max-width: 1100px) {
+  .prezzi-grid, .abbonamenti-grid.quattro, .pacchetti-grid.quattro {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 1024px) {
+  .listino-wrap { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 768px) {
+  .prezzi-grid, .listino-wrap, .abbonamenti-grid, .abbonamenti-grid.quattro,
+  .pacchetti-grid.quattro, .sede-ctas {
+    grid-template-columns: 1fr !important;
+  }
+  .listino-col { padding: 22px 20px !important; }
+  .listino-riga { gap: 12px !important; }
+  .prezzo-cat { min-height: 0 !important; }
+}
+
+/* Righe di listino: nome lungo e prezzo non devono accavallarsi */
+@media (max-width: 480px) {
+  .listino-riga { flex-wrap: wrap !important; }
+  .listino-prezzo { margin-left: auto !important; }
+}
+
+/* ---------- 3. Niente scorrimento orizzontale, a nessuna larghezza ---------- */
+/* `clip` e non `hidden`: `hidden` crea un contenitore di scorrimento e
+   disattiverebbe il position:sticky dell'header su tutte le pagine. */
+html, body { max-width: 100%; overflow-x: clip; }
+
+/* ---------- 4. Form su mobile: niente zoom automatico di iOS ---------- */
+/* Safari su iOS ingrandisce la pagina quando si tocca un campo con
+   font-size < 16px, e da lì in poi il layout resta spostato e il form
+   sembra tagliato. Portare i campi a 16px è l'unico modo per evitarlo. */
+@media (max-width: 768px) {
+  input, select, textarea,
+  .hbc-field input, .hbc-field select, .hbc-field textarea,
+  .form-field input, .form-field select, .form-field textarea,
+  .form-card input, .form-card select, .form-card textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ---------- 5. Aree toccabili ---------- */
+/* Su schermo tattile ogni comando deve restare afferrabile con il dito. */
+@media (pointer: coarse) {
+  button, .btn-primary, .btn-ghost, .btn-sede, .btn-pacchetto, .btn-abbonamento,
+  .btn-channel, .btn-social, .btn-submit, .btn-card, .btn-treatwell, .btn-wa,
+  .btn-tel, .hbc-btn-primary, .hbc-tw, .hbc-wa, .nav-toggle,
+  .btn-sede-tel, .btn-sede-wa, .btn-sede-treatwell {
+    min-height: 44px;
+  }
+  .faq-q, .faq-question, .area-pill { min-height: 44px; display: flex; align-items: center; }
+}
+
+/* ---------- 6. Immagini e mappe: mai più larghe dello schermo ---------- */
+img, iframe, video, svg { max-width: 100%; }
+.map-frame, .sede-map { max-width: 100%; }
