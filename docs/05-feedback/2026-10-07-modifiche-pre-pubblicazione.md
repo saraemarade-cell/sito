@@ -159,7 +159,7 @@ Procedo in lotti, così ogni blocco è verificabile:
 - bilanciamento `<div>` verificato su tutte le 11 pagine modificate
 
 ### Non applicato — in attesa di dati (vedi §4)
-- **D1** numeri Carugate: **fisso ricevuto il 7 ottobre 2026 → `02 7709 5069`**, inserito in `site.js`, nel footer di tutte le 16 pagine, nella FAQ prenotazioni e nel pulsante di `sede-carugate.html`. Resta da avere il **WhatsApp di Carugate**
+- **D1** numeri Carugate: **completati l'8 ottobre 2026** → fisso `02 7709 5069`, WhatsApp `+39 331 109 3564` ✅
 - **D2** pacchetti laser DONNA/UOMO: sezione segnalata in pagina con nota visibile
 - **D3** pacchetti ceretta: nota visibile in pagina
 - **D4** abbonamenti solarium attivi: note visibili in `solarium.html` e `offerte.html`
@@ -643,3 +643,30 @@ Ora la finestra ha tre modalità, tutte sulla stessa struttura:
 `site.js` espone quindi `lsCallChoice()`, `lsWaChoice()` e `lsTreatwellChoice()`. Le etichette dei pulsanti nella finestra non ripetono più la parola "Chiama" o "WhatsApp", che è già nel titolo: mostrano direttamente il numero.
 
 Nelle pagine, i 61 CTA WhatsApp puntano a `lsWaChoice` e i 41 CTA telefono a `lsCallChoice`. La distinzione è stata fatta sull'origine del markup: gli `<a>` nati da link `wa.me` e i pulsanti con classe `btn-wa` / `hbc-wa` / `hib-btn-wa` sono WhatsApp, i `<button>` con l'icona del telefono sono chiamate.
+
+---
+
+## 28. WhatsApp Carugate inserito — D1 chiuso (8 ottobre 2026)
+
+Numero ricevuto: **+39 331 109 3564**. Coincide con il `+39 331 1093564` che compariva sul retro del listino 2026 accanto al fisso di Carugate, quindi le due fonti si confermano a vicenda.
+
+Inserito in `site.js` (`LS_SEDI`) e nei punti dove il numero è scritto in chiaro o cliccabile:
+
+| Dove | Prima | Ora |
+|---|---|---|
+| footer ×16 | "WhatsApp da inserire" | WhatsApp +39 331 109 3564 |
+| `chi-siamo.html`, card sede | segnaposto | numero reale |
+| `contatti.html`, blocco Carugate | pulsante disattivato | **link attivo** a `wa.me/393311093564` |
+| `sede-carugate.html`, box hero | segnaposto | numero reale |
+| `sede-carugate.html`, pulsante | apriva la scelta sede | **link diretto** al WhatsApp di Carugate |
+| `faq.html`, "Come prenotare" | segnaposto | numero reale |
+| `index.html`, box sede Carugate | segnaposto | numero reale |
+
+Rimossa la nota gialla "⚠️ WhatsApp Carugate in attesa dal centro" da `contatti.html`.
+
+**Nessun segnaposto di contatto resta nel sito.** Da ora la scelta sede per WhatsApp propone due numeri attivi invece di uno solo, e sulle pagine sede i pulsanti scrivono direttamente alla sede giusta senza passaggi intermedi.
+
+### Dati ancora mancanti dopo questo passaggio
+- **D5** prezzi dei servizi nuovi: chiuso con il listino 2026
+- **D6** immagini T-Shape 2 e foto del lettino C20: ancora da fornire
+- URL Treatwell: completati · pacchetti laser, ceretta e abbonamenti solarium: completati

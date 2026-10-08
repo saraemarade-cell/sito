@@ -5,8 +5,8 @@
    il pulsante "Chiama Ora" dell'header, il pulsante "WhatsApp"
    dell'header, le CTA finali e il pulsante WhatsApp flottante.
 
-   ⚠️ Carugate: WhatsApp ancora da inserire. Finché `wa` resta null,
-   la riga WhatsApp compare come "numero da inserire" e non è cliccabile.
+   Se un numero manca, metti `null`: la riga compare come "numero da
+   inserire" e non è cliccabile, invece di puntare al numero sbagliato.
    ────────────────────────────────────────────────────────────────────── */
 window.LS_SEDI = [
   {
@@ -27,8 +27,8 @@ window.LS_SEDI = [
     orari: 'Mar–Mer 9:00–20:00 · Gio 9:00–21:00 · Ven 9:00–19:00 · Sab 9:00–18:00',
     tel: '0277095069',
     telLabel: '02 7709 5069',
-    wa: null,
-    waLabel: null
+    wa: '393311093564',
+    waLabel: '+39 331 109 3564'
     ,treatwell: 'https://www.treatwell.it/salone/lovesun-solarium-carugate/'
   }
 ];
