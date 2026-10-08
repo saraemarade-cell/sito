@@ -53,15 +53,6 @@
     .section { max-width: 1100px; margin: 0 auto; padding: 56px 40px; }
 
     /* CARDS CANALI */
-    .channels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .channel-card { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 14px; padding: 32px 24px; text-align: center; }
-    .channel-icon { font-size: 36px; margin-bottom: 14px; }
-    .channel-card h3 { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 6px; }
-    .channel-card p { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 18px; }
-    .channel-info { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 16px; }
-    .btn-channel { display: block; background: #222; color: #fff; border: none; border-radius: 8px; padding: 12px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; }
-    .btn-channel-wa { background: #25d366; }
-    .btn-channel-outline { background: transparent; border: 1.5px solid #222; color: #222; }
 
     /* SEDI 2 COL */
     .sedi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -76,6 +67,14 @@
     .orari-table td:first-child { color: #888; width: 140px; }
     .orari-table tr.chiuso td { color: #ccc; }
     .btn-sede { display: block; background: #222; color: #fff; text-align: center; padding: 11px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; border: none; }
+    .sede-badge { background: #111; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .14em; padding: 10px 18px; text-transform: uppercase; }
+    .sede-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: #999; text-transform: uppercase; margin-bottom: 8px; }
+    .sede-ctas { display: flex; flex-direction: column; gap: 9px; }
+    .btn-sede-tel, .btn-sede-wa, .btn-sede-treatwell { display: block; text-align: center; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; }
+    .btn-sede-tel { background: #ED1E88; color: #fff; }
+    .btn-sede-wa { background: #25d366; color: #fff; }
+    .btn-sede-treatwell { background: #00b67a; color: #fff; }
+    .btn-sede-off { background: #f0f0f0; color: #999; cursor: not-allowed; }
 
     /* FORM */
     .form-section-bg { background: #fff; padding: 72px 40px; }
@@ -171,8 +170,8 @@
     <span class="active">Contatti</span>
   </nav>
   <div class="header-actions">
-    <button class="btn-ghost" onclick="window.location.href='tel:0314682567'" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
+    <button class="btn-ghost" onclick="lsCallChoice(event)" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-primary">Prenota Ora</button></a>
   </div>
 </header>
@@ -188,91 +187,67 @@
     </div>
   </div>
 </div>
-<div class="section-divider">SEZIONE 2 — CANALI DI CONTATTO</div>
+<div class="section-divider">SEZIONE 2 — LOVESUN BREGNANO / LOVESUN CARUGATE</div>
 
-<!-- ══ CANALI ══ -->
-<div class="section">
-  <div class="section-tag">canali di contatto</div>
-  <h2 class="wf">Come vuoi contattarci?</h2>
-  <p class="wf">Scegli il canale che preferisci — rispondiamo sempre entro 24 ore.</p>
-  <div class="channels-grid">
-
-    <div class="channel-card">
-      <div class="channel-icon" style="color:#fff;"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-      <h3>Telefono</h3>
-      <p>Chiama direttamente la sede che preferisci. Disponibili negli orari di apertura.</p>
-      <div class="channel-info">031 4682567<br>+39 347 3983337</div>
-      <button class="btn-channel btn-channel-outline">Chiama ora</button>
-    </div>
-
-    <div class="channel-card">
-      <div class="channel-icon" style="color:#fff;"><svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></div>
-      <h3>WhatsApp</h3>
-      <p>Il modo più rapido. Rispondiamo di solito entro pochi minuti durante l'orario di apertura.</p>
-      <div class="channel-info">+39 347 3983337</div>
-      <button class="btn-channel btn-channel-wa">Scrivi su WhatsApp</button>
-    </div>
-
-    <div class="channel-card">
-      <div class="channel-icon" style="color:#fff;"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-      <h3>Treatwell</h3>
-      <p>Prenota online in pochi clic. Scegli giorno e orario. Disponibilità in tempo reale.</p>
-      <div class="channel-info" style="font-size:13px;">★ 4,9/5 · 419 recensioni</div>
-      <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
-        <a href="#" class="btn-channel" style="background:#00b67a; color:#fff; display:block; text-align:center; text-decoration:none; padding:12px; border-radius:8px; font-size:14px; font-weight:700;">Prenota — Bregnano (CO)</a>
-        <a href="#" class="btn-channel" style="background:#00b67a; color:#fff; display:block; text-align:center; text-decoration:none; padding:12px; border-radius:8px; font-size:14px; font-weight:700;">Prenota — Carugate (MI)</a>
-      </div>
-      <div class="wf-note" style="margin-top:8px;">⚠️ Sostituire href="#" con URL Treatwell di ciascuna sede</div>
-    </div>
-
-  </div>
-</div>
-<div class="section-divider">SEZIONE 3 — LE NOSTRE SEDI</div>
-
-<!-- ══ SEDI ══ -->
+<!-- ══ DUE BLOCCHI SEDE ══ -->
 <div class="section">
   <div class="section-tag">le nostre sedi</div>
-  <h2 class="wf">Dove trovarci</h2>
-  <p class="wf">Due centri in Lombardia, stessa qualità e stessa attenzione.</p>
+  <h2 class="wf">Scegli la sede che ti interessa</h2>
+  <p class="wf">Ogni sede ha i suoi orari, i suoi numeri e la sua prenotazione online. Nessun contatto in comune.</p>
   <div class="sedi-grid">
 
+    <!-- ─────────── LOVESUN BREGNANO ─────────── -->
     <div class="sede-card">
+      <div class="sede-badge">LOVESUN BREGNANO</div>
       <div class="sede-map map-frame" style="height:220px;"><iframe class="map-embed" src="https://maps.google.com/maps?q=Via%20per%20Lazzate%207%2C%2022070%20Bregnano%20CO&z=15&output=embed" height="220" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa Love Sun Beauty Bregnano"></iframe></div>
       <div class="sede-body">
-        <div class="sede-nome">Love Sun Beauty Bregnano</div>
         <div class="sede-indirizzo">📍 Via per Lazzate 7 — 22070 Bregnano (CO)</div>
+        <div class="sede-label">Orari di apertura</div>
         <table class="orari-table">
-          <tr><td>Lun – Sab</td><td>9:00 – 21:00</td></tr>
-          <tr><td>Domenica</td><td>9:00 – 17:00</td></tr>
+          <tr><td>Lun – Ven</td><td>8:30 – 21:00</td></tr>
+          <tr><td>Sabato</td><td>8:30 – 19:00</td></tr>
+          <tr><td>Domenica</td><td>9:00 – 15:00</td></tr>
         </table>
-        <div class="sede-row">Tel. 031 4682567</div>
-        <div class="sede-row">WhatsApp +39 347 3983337</div>
-        <div class="sede-row" style="margin-bottom:18px;">info@lovesun.it</div>
-        <a href="sede-bregnano.html" class="btn-sede">Scopri la sede →</a>
+        <div class="sede-label">Contatti Bregnano</div>
+        <div class="sede-row" style="margin-bottom:14px;">info@lovesun.it</div>
+        <div class="sede-ctas">
+          <a href="tel:0314682567" class="btn-sede-tel">Chiama — 031 4682567</a>
+          <a href="https://wa.me/393473983337" target="_blank" rel="noopener" class="btn-sede-wa">WhatsApp — 347 398 3337</a>
+          <a href="https://www.treatwell.it/salone/lovesun-solarium-bregnano/" target="_blank" rel="noopener" class="btn-sede-treatwell">Prenota online — Bregnano</a>
+          <a href="sede-bregnano.html" class="btn-sede">Scopri la sede →</a>
+        </div>
       </div>
     </div>
 
+    <!-- ─────────── LOVESUN CARUGATE ─────────── -->
     <div class="sede-card">
+      <div class="sede-badge">LOVESUN CARUGATE</div>
       <div class="sede-map map-frame" style="height:220px;"><iframe class="map-embed" src="https://maps.google.com/maps?q=Via%20del%20Ginestrino%2016%2C%2020061%20Carugate%20MI&z=15&output=embed" height="220" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa Love Sun Beauty Carugate"></iframe></div>
       <div class="sede-body">
-        <div class="sede-nome">Love Sun Beauty Carugate</div>
         <div class="sede-indirizzo">📍 Via del Ginestrino 16 — 20061 Carugate (MI)</div>
+        <div class="sede-label">Orari di apertura</div>
         <table class="orari-table">
-          <tr><td>Mar / Mer / Ven / Sab</td><td>9:00 – 20:00</td></tr>
+          <tr><td>Mar / Mer</td><td>9:00 – 20:00</td></tr>
           <tr><td>Giovedì</td><td>9:00 – 21:00</td></tr>
+          <tr><td>Venerdì</td><td>9:00 – 19:00</td></tr>
+          <tr><td>Sabato</td><td>9:00 – 18:00</td></tr>
           <tr class="chiuso"><td>Lunedì / Domenica</td><td>Chiuso</td></tr>
         </table>
-        <div class="sede-row">Tel. 031 4682567</div>
-        <div class="sede-row">WhatsApp +39 347 3983337</div>
-        <div class="sede-row" style="margin-bottom:18px;">info@lovesun.it</div>
-        <a href="sede-carugate.html" class="btn-sede">Scopri la sede →</a>
+        <div class="sede-label">Contatti Carugate</div>
+        <div class="sede-row" style="margin-bottom:14px;">info@lovesun.it</div>
+        <div class="sede-ctas">
+          <a href="tel:0277095069" class="btn-sede-tel">Chiama — 02 7709 5069</a>
+          <span class="btn-sede-wa btn-sede-off" title="Numero WhatsApp da inserire">WhatsApp — numero da inserire</span>
+          <a href="https://www.treatwell.it/salone/lovesun-solarium-carugate/" target="_blank" rel="noopener" class="btn-sede-treatwell">Prenota online — Carugate</a>
+          <a href="sede-carugate.html" class="btn-sede">Scopri la sede →</a>
+        </div>
       </div>
     </div>
 
   </div>
-  <div class="wf-note" style="margin-top:16px;">Mappe Google Maps da integrare con iframe embed — placeholder dashed in wireframe</div>
+  <div class="wf-note" style="margin-top:16px;">⚠️ WhatsApp Carugate in attesa dal centro</div>
 </div>
-<div class="section-divider">SEZIONE 4 — FORM CONTATTO</div>
+<div class="section-divider">SEZIONE 3 — FORM CONTATTO</div>
 
 <!-- ══ FORM ══ -->
 <div class="form-section-bg">
@@ -280,12 +255,7 @@
     <div class="form-text">
       <div class="section-tag">form contatto</div>
       <h2>Scrivici un messaggio</h2>
-      <p>Compila il modulo e ti risponderemo entro 24 ore. Per risposte immediate usa WhatsApp.</p>
-      <ul>
-        <li>Tel. 031 4682567</li>
-        <li>WhatsApp +39 347 3983337</li>
-        <li>Treatwell — Prenota online</li>
-      </ul>
+      <p>Compila il modulo, indicando la sede, e ti risponderemo entro 24 ore. Se preferisci telefonare o scrivere su WhatsApp, trovi i numeri di ciascuna sede nei due blocchi qui sopra.</p>
       <div class="wf-note" style="margin-top:20px;">Form con invio email a info@lovesun.it</div>
     </div>
     <div class="form-card">
@@ -335,7 +305,7 @@
     </div>
   </div>
 </div>
-<div class="section-divider">SEZIONE 5 — SOCIAL</div>
+<div class="section-divider">SEZIONE 4 — SOCIAL</div>
 
 <!-- ══ SOCIAL ══ -->
 <div class="section">
@@ -347,31 +317,33 @@
       <div class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.3-.04-1.3-.12-2.4-.12-2.4 0-4 1.46-4 4.14v2.31H7.5V13h2.8v8h3.2z"/></svg></div>
       <h4>Facebook</h4>
       <p>Pagina ufficiale con aggiornamenti, promozioni e recensioni della community.</p>
-      <a href="#" class="btn-social">Love Sun Beauty Centro Estetico</a>
+      <a href="https://www.facebook.com/lovesunsolarium/" target="_blank" rel="noopener" class="btn-social">@lovesunsolarium</a>
     </div>
     <div class="social-card">
       <div class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></div>
       <h4>Instagram</h4>
       <p>Foto, reel e storie dal salone. Seguici per ispirazione e anteprime delle nostre offerte.</p>
-      <a href="#" class="btn-social">@lovesun_official</a>
+      <a href="https://www.instagram.com/lovesunsolarium/" target="_blank" rel="noopener" class="btn-social">@lovesunsolarium</a>
     </div>
     <div class="social-card">
       <div class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></div>
       <h4>TikTok</h4>
       <p>Video brevi, before & after, curiosità sui trattamenti e vita quotidiana del centro.</p>
-      <a href="#" class="btn-social">@lovesun_official</a>
+      <a href="https://www.tiktok.com/@lovesunsolariumofficial" target="_blank" rel="noopener" class="btn-social">@lovesunsolariumofficial</a>
     </div>
   </div>
   <div style="margin-top:20px; background:#fff; border:1.5px solid #e0e0e0; border-radius:12px; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
     <div>
       <div style="font-size:15px; font-weight:700; color:#111; margin-bottom:4px;">⭐ Treatwell</div>
-      <div style="font-size:13px; color:#888;">419 recensioni verificate · media 4.9/5 · prenota online</div>
+      <div style="font-size:13px; color:#888;">Media 4,9/5 · 2.290 recensioni Bregnano · 1.036 recensioni Carugate</div>
     </div>
-    <a href="#" class="btn-social" style="white-space:nowrap;">Prenota su Treatwell</a>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <a href="https://www.treatwell.it/salone/lovesun-solarium-bregnano/" target="_blank" rel="noopener" class="btn-social" style="white-space:nowrap;">Prenota — Bregnano</a>
+      <a href="https://www.treatwell.it/salone/lovesun-solarium-carugate/" target="_blank" rel="noopener" class="btn-social" style="white-space:nowrap;">Prenota — Carugate</a>
+    </div>
   </div>
-  <div class="wf-note" style="margin-top:16px;">Link social da aggiornare con URL reali</div>
 </div>
-<div class="section-divider">SEZIONE 6 — TRUST BAR</div>
+<div class="section-divider">SEZIONE 5 — TRUST BAR</div>
 
 <!-- ══ TRUST BAR ══ -->
 <div class="trust-bar">
@@ -398,7 +370,7 @@
     </div>
   </div>
 </div>
-<div class="section-divider">SEZIONE 7 — CTA FINALE</div>
+<div class="section-divider">SEZIONE 6 — CTA FINALE</div>
 
 <!-- ══ CTA FINALE ══ -->
 <div class="cta-finale-bg">
@@ -406,8 +378,8 @@
   <p>Non aspettare — il nostro team è pronto ad accoglierti.</p>
   <div class="cta-finale-actions">
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-finale-primary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Prenota Ora</button></a>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
-    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="window.location.href='tel:0314682567'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
+    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="lsCallChoice(event)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
   </div>
 </div>
 
@@ -420,7 +392,7 @@
       <div class="footer-social">
         <a href="https://www.facebook.com/lovesunsolarium/" target="_blank" rel="noopener" class="social-icon" title="Facebook" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.3-.04-1.3-.12-2.4-.12-2.4 0-4 1.46-4 4.14v2.31H7.5V13h2.8v8h3.2z"/></svg></a>
         <a href="https://www.instagram.com/lovesun.beauty?igsh=MW90b3pvNXBhYWFtNA==" target="_blank" rel="noopener" class="social-icon" title="Instagram" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" target="_blank" rel="noopener" class="social-icon" title="TikTok — link da inserire" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
+        <a href="https://www.tiktok.com/@lovesunsolariumofficial" target="_blank" rel="noopener" class="social-icon" title="TikTok" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -439,23 +411,23 @@
       <div class="footer-col-title">Love Sun Beauty Bregnano</div>
       <p>Via per Lazzate 7<br>22070 Bregnano (CO)</p>
       <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Lun–Sab 9:00–21:00<br>Dom 9:00–17:00</p>
+      <p>Lun–Ven 8:30–21:00<br>Sab 8:30–19:00<br>Dom 9:00–15:00</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Love Sun Beauty Carugate</div>
       <p>Via del Ginestrino 16<br>20061 Carugate (MI)</p>
-      <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Mar/Mer/Ven/Sab 9:00–20:00<br>Gio 9:00–21:00<br>Lun e Dom: Chiuso</p>
+      <p>02 7709 5069<br>WhatsApp <span style="color:#e08; font-weight:700;">da inserire</span><br>info@lovesun.it</p>
+      <p>Mar–Mer 9:00–20:00<br>Gio 9:00–21:00<br>Ven 9:00–19:00<br>Sab 9:00–18:00<br>Lun e Dom: Chiuso</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Cookie Policy</span>
+    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; <a href="https://www.iubenda.com/privacy-policy/49388135" target="_blank" rel="noopener" style="color:inherit;">Privacy Policy</a> &nbsp;·&nbsp; <!-- TODO: il documento Cookie Policy non esiste su iubenda (49388135/cookie-policy restituisce "Documento inesistente"). Va pubblicato dalla dashboard iubenda, poi sostituire questo span con: <a href="https://www.iubenda.com/privacy-policy/49388135/cookie-policy" target="_blank" rel="noopener" style="color:inherit;">Cookie Policy</a> --><span title="Documento da pubblicare su iubenda">Cookie Policy</span></span>
     <span>P.IVA: 03959640131</span>
   </div>
 </footer>
 
 <!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/393473983337" target="_blank" rel="noopener" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
+<a class="wa-float" href="contatti.html" onclick="lsCallChoice(event)" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
 
 <script src="site.js"></script>
 

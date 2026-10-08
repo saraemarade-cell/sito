@@ -5,3 +5,7 @@ desktop.ini
 *.swp
 .vscode/
 .idea/
+
+# Documenti di lavoro interni (non vanno nel repo pubblico)
+*.docx
+.~lock.*#

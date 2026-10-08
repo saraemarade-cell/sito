@@ -120,13 +120,15 @@
     /* TRUST BAR */
     /* PACCHETTI */
     .pacchetti-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .pacchetti-grid.due { grid-template-columns: repeat(2, 1fr); max-width: 760px; }
+    .pacchetti-gruppo { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #ED1E88; margin-top: 48px; }
     .pacchetto-card { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 28px; position: relative; display: flex; flex-direction: column; }
     .pacchetto-card.featured { border-color: #222; border-width: 2px; }
     .pacchetto-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #222; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 16px; border-radius: 0 0 8px 8px; letter-spacing: .05em; white-space: nowrap; }
     .pacchetto-nome { font-size: 18px; font-weight: 800; color: #111; margin-bottom: 6px; }
     .pacchetto-desc { font-size: 13px; color: #777; margin-bottom: 18px; }
     .pacchetto-prezzo { font-size: 28px; font-weight: 800; color: #111; margin-bottom: 4px; }
-    .pacchetto-prezzo-old { font-size: 14px; color: #bbb; text-decoration: line-through; margin-bottom: 16px; }
+    .pacchetto-nota { font-size: 14px; color: #888; margin-bottom: 16px; }
     .pacchetto-features { list-style: none; padding: 0; margin-bottom: 24px; flex: 1; }
     .pacchetto-features li { font-size: 13px; color: #444; padding: 6px 0; border-bottom: 1px solid #f0f0f0; display: flex; gap: 8px; }
     .pacchetto-features li::before { content: "✓"; color: #27ae60; font-weight: 700; flex-shrink: 0; }
@@ -252,8 +254,8 @@
     <span><a href="contatti.html" style="color:inherit;text-decoration:none;">Contatti</a></span>
   </nav>
   <div class="header-actions">
-    <button class="btn-ghost" onclick="window.location.href='tel:0314682567'" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
+    <button class="btn-ghost" onclick="lsCallChoice(event)" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-primary">Prenota Ora</button></a>
   </div>
 </header>
@@ -273,10 +275,10 @@
     <div class="hero-text-col">
       <h1 class="wf" style="color:#fff; font-size:42px;">Epilazione Laser al Diodo Led<br>(EPILED 818)</h1>
       <p class="wf" style="color:rgba(255,255,255,.85); font-size:17px; font-weight:600; margin-bottom:10px;">Tecnologia avanzata, risultati permanenti, massimo comfort.</p>
-      <p class="wf" style="color:rgba(255,255,255,.75); font-size:15px;">Con EPILED 818, la nuova generazione di laser a diodo, l'epilazione definitiva diventa un trattamento veloce, sicuro e totalmente indolore, efficace anche su pelle abbronzata. Il laser agisce sulla melanina del pelo: è quindi indicato sui peli scuri, mentre non risulta efficace su peli biondi, rossi o bianchi.</p>
+      <p class="wf" style="color:rgba(255,255,255,.75); font-size:15px;">Con EPILED 818, la nuova generazione di laser a diodo, l'epilazione diventa un trattamento veloce, sicuro e ben tollerato. Il laser agisce sulla melanina del pelo: lavora quindi <strong>principalmente sui peli pigmentati, cioè scuri</strong>, mentre i peli bianchi, rossi o privi di pigmento sufficiente non vengono letti correttamente e non rispondono. La pelle abbronzata non è di per sé una controindicazione, purché non ci si esponga al sole nei 4 giorni prima e nei 4 giorni dopo la seduta.</p>
       <div style="display:flex; gap:16px; margin-top:18px; flex-wrap:wrap;">
         <div style="display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); font-size:14px; font-weight:600;">✓ Totalmente indolore</div>
-        <div style="display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); font-size:14px; font-weight:600;">✓ Anche su pelle abbronzata</div>
+        <div style="display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); font-size:14px; font-weight:600;">✓ Anche in estate, con 4 giorni di stop al sole</div>
         <div style="display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); font-size:14px; font-weight:600;">✓ Risultati duraturi</div>
       </div>
       <div style="margin-top:20px; display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:6px 16px;">
@@ -310,18 +312,6 @@
           <option>Love Sun Beauty Carugate (MI)</option>
         </select>
       </div>
-      <div class="hbc-field">
-        <label>Area da trattare</label>
-        <select>
-          <option>-- Seleziona --</option>
-          <option>Ascelle</option>
-          <option>Gambe complete</option>
-          <option>Inguine / Brasiliana</option>
-          <option>Labbro superiore</option>
-          <option>Total body</option>
-          <option>Altro / Più aree</option>
-        </select>
-      </div>
 
             <div class="hbc-field">
         <label>Messaggio (opzionale)</label>
@@ -349,7 +339,7 @@
     <div style="margin-bottom:56px;">
       <div style="display:inline-block; background:#fff; color:#ED1E88; font-size:10px; font-weight:700; letter-spacing:.12em; padding:5px 14px; border-radius:20px; margin-bottom:20px; text-transform:uppercase;">Perché scegliere il laser</div>
       <h2 style="font-size:32px; font-weight:800; color:#fff; line-height:1.2; margin-bottom:16px;">Da metodi temporanei<br>a risultati definitivi.</h2>
-      <p style="font-size:16px; color:rgba(255,255,255,.92); max-width:540px; line-height:1.7;">La ceretta funziona. Ma fino alla prossima volta. Il laser EPILED 818 agisce alla radice per una riduzione permanente del pelo, su tutti i fototipi.</p>
+      <p style="font-size:16px; color:rgba(255,255,255,.92); max-width:540px; line-height:1.7;">La ceretta funziona. Ma fino alla prossima volta. Il laser a diodo agisce alla radice per una riduzione permanente del pelo, fino al 90%, sui peli scuri e pigmentati.</p>
     </div>
 
     <!-- Griglia principale: Problema | VS | Soluzione -->
@@ -416,7 +406,7 @@
           </div>
           <div style="display:flex; gap:14px; align-items:center; padding:13px 0; border-bottom:1px solid #f0fff4;">
             <div style="width:24px; height:24px; background:#f0fff4; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; color:#27ae60; font-weight:800; flex-shrink:0;">✓</div>
-            <span style="font-size:14px; color:#555;">Efficace su pelle abbronzata e sui peli scuri</span>
+            <span style="font-size:14px; color:#555;">Efficace sui peli scuri e pigmentati</span>
           </div>
           <div style="display:flex; gap:14px; align-items:center; padding:13px 0;">
             <div style="width:24px; height:24px; background:#f0fff4; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; color:#27ae60; font-weight:800; flex-shrink:0;">✓</div>
@@ -434,7 +424,7 @@
         <div style="display:inline-block; background:rgba(255,255,255,.1); color:#fff; font-size:10px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.08em; margin-bottom:16px;">EPILED 818 · 818 nm</div>
         <h3 style="font-size:18px; font-weight:700; color:#fff; margin-bottom:12px;">Come funziona il laser?</h3>
         <p style="font-size:14px; color:rgba(255,255,255,.65); line-height:1.7; margin:0 0 12px;">Il Laser Diodo EPILED 818 emette un raggio a lunghezza d'onda di <strong style="color:#fff;">818 nm</strong>, selezionata per colpire in modo preciso la melanina contenuta nei bulbi piliferi. Il calore generato distrugge le cellule germinative responsabili della ricrescita del pelo, lasciando intatti i tessuti circostanti.</p>
-        <p style="font-size:14px; color:rgba(255,255,255,.65); line-height:1.7; margin:0;">A differenza della luce pulsata, il laser EPILED 818 garantisce <strong style="color:#fff;">risultati più duraturi</strong>, maggiore selettività e può essere utilizzato <strong style="color:#fff;">anche su pelle scura o abbronzata</strong>, grazie a un controllo intelligente dell'energia e a un potente sistema di raffreddamento che protegge la cute durante tutto il trattamento. Poiché il laser colpisce la melanina, è molto efficace sui peli scuri ma non è indicato su peli biondi, rossi o bianchi, che ne sono privi.</p>
+        <p style="font-size:14px; color:rgba(255,255,255,.65); line-height:1.7; margin:0;">A differenza della luce pulsata, il laser EPILED 818 garantisce <strong style="color:#fff;">risultati più duraturi</strong>, maggiore selettività e può essere utilizzato <strong style="color:#fff;">anche su pelle scura o abbronzata</strong>, rispettando i 4 giorni di stop al sole prima e dopo la seduta, grazie a un controllo intelligente dell'energia e a un potente sistema di raffreddamento che protegge la cute. Poiché il laser legge la melanina del pelo, è efficace sui peli pigmentati e scuri, mentre i peli biondi, rossi o bianchi non vengono letti correttamente.</p>
       </div>
 
       <!-- Divisore verticale -->
@@ -497,12 +487,12 @@
         <div class="beneficio-card">
           <div class="beneficio-icon">🌙</div>
           <h3 class="wf">Risultati Duraturi</h3>
-          <p class="wf" style="font-size:13px;">Riduzione permanente del pelo già dalle prime sedute. Dì addio al ciclo infinito di cerette e rasoio.</p>
+          <p class="wf" style="font-size:13px;">Riduzione progressiva fin dalle prime sedute, con un'epilazione definitiva fino al 90% al termine del percorso.</p>
         </div>
         <div class="beneficio-card">
           <div class="beneficio-icon">🎨</div>
-          <h3 class="wf">Anche Pelle Abbronzata</h3>
-          <p class="wf" style="font-size:13px;">Utilizzabile su carnagioni chiare, medie e scure, anche abbronzate. Il laser è efficace sui peli scuri, non su peli biondi o rossi.</p>
+          <h3 class="wf">Anche con la Pelle Abbronzata</h3>
+          <p class="wf" style="font-size:13px;">L'abbronzatura non è una controindicazione: basta non esporsi al sole nei 4 giorni prima e nei 4 giorni dopo la seduta.</p>
         </div>
         <div class="beneficio-card">
           <div class="beneficio-icon">🛡️</div>
@@ -532,7 +522,7 @@
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-title">Consulenza Gratuita</div>
-          <div class="step-desc">Analizziamo fototipo, colore del pelo e area da trattare. Definiamo insieme il tuo programma personalizzato.</div>
+          <div class="step-desc">Analizziamo pelle, colore e pigmentazione del pelo e area da trattare. Definiamo insieme il tuo programma personalizzato.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -542,12 +532,12 @@
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-title">Sedute Successive</div>
-          <div class="step-desc">Una seduta ogni 4–8 settimane, in base alla fase di crescita del pelo. In media 6–8 sedute totali.</div>
+          <div class="step-desc">Una seduta ogni 4 settimane, con eventuali controlli ogni 3 settimane. In media 10 sedute per le donne e 12 per gli uomini.</div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-title">Risultato</div>
-          <div class="step-desc">Riduzione permanente del pelo. Pelle liscia e libera tutto l'anno, senza dover pensarci più.</div>
+          <div class="step-desc">Epilazione definitiva fino al 90% dei peli trattati, nelle zone con pelo pigmentato. Pelle liscia tutto l'anno.</div>
         </div>
       </div>
     </section>
@@ -589,19 +579,19 @@
     <section style="padding:60px 0 32px;">
       <div class="section-tag">Risultati</div>
       <h2 class="wf">I risultati parlano da soli</h2>
-      <p class="wf">Immagini reali delle nostre clienti, condivise con il consenso. I risultati possono variare in base al fototipo e all'area trattata.</p>
+      <p class="wf">Immagini reali delle nostre clienti, condivise con il consenso. I risultati possono variare in base alla zona trattata e alla pigmentazione del pelo.</p>
 
       <div class="prima-dopo">
         <div class="pd-card">
-          <div class="pd-img" style="display:flex;align-items:center;justify-content:center;background:#FFD9DD;color:#ED1E88;font-weight:700;font-size:13px;letter-spacing:.04em;">Foto — da inserire</div>
+          <div class="pd-img" style="padding:0; overflow:hidden;"><img src="img/epil-laser/ascella-prima.webp" alt="Ascella prima del trattamento di epilazione laser, con pelo scuro" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
           <div class="pd-label">Prima — Ascella completa</div>
         </div>
         <div class="pd-card">
-          <div class="pd-img" style="display:flex;align-items:center;justify-content:center;background:#FFD9DD;color:#ED1E88;font-weight:700;font-size:13px;letter-spacing:.04em;">Foto — da inserire</div>
-          <div class="pd-label">Dopo 6 sedute — Ascella completa</div>
+          <div class="pd-img" style="padding:0; overflow:hidden;"><img src="img/epil-laser/ascella-dopo.webp" alt="Ascella dopo il percorso di epilazione laser, pelle liscia e senza peli" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div class="pd-label">Dopo il ciclo di sedute — Ascella completa</div>
         </div>
       </div>
-      <div class="wf-note" style="margin-top:16px;">Le foto prima/dopo sono da raccogliere dal centro · Aggiungere consenso scritto delle clienti</div>
+      <div class="wf-note" style="margin-top:16px;">⚠️ Verificare di avere il consenso scritto della cliente per la pubblicazione delle foto</div>
     </section>
   </div>
 </div>
@@ -612,57 +602,97 @@
   <div>
     <section style="padding:32px 0 60px;">
       <div class="section-tag">Formule e Pacchetti</div>
-      <h2 class="wf">Scegli il pacchetto più adatto a te</h2>
-      <p class="wf">Risparmi di più scegliendo un pacchetto. Tutti i pacchetti includono la consulenza gratuita iniziale.</p>
+      <h2 class="wf">Pacchetti Laser</h2>
+      <p class="wf">Pacchetti a rata mensile fissa per 12 mesi, con le zone già comprese. La consulenza iniziale è sempre gratuita.</p>
 
+      <div class="pacchetti-gruppo">Pacchetto Laser Donna</div>
       <div class="pacchetti-grid">
 
         <div class="pacchetto-card">
-          <div class="pacchetto-nome">Singola Seduta</div>
-          <div class="pacchetto-desc">Per iniziare o completare il percorso</div>
-          <div class="pacchetto-prezzo">Su richiesta</div>
-          <div class="pacchetto-prezzo-old">per area / seduta</div>
+          <div class="pacchetto-nome">Inguine + Ascelle</div>
+          <div class="pacchetto-desc">Le due zone più richieste</div>
+          <div class="pacchetto-prezzo">59,00 € <span style="font-size:15px; font-weight:600;">al mese</span></div>
+          <div class="pacchetto-nota">per 12 mesi</div>
           <ul class="pacchetto-features">
-            <li>1 seduta su area a scelta</li>
+            <li>Inguine</li>
+            <li>Ascelle</li>
             <li>Consulenza iniziale gratuita</li>
+            <li>Una seduta ogni 4 settimane</li>
             <li>Protocollo pre/post incluso</li>
           </ul>
-          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Prenota la Seduta</button></a>
+          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Richiedi Info</button></a>
         </div>
 
         <div class="pacchetto-card featured">
           <div class="pacchetto-badge">⭐ Più scelto</div>
-          <div class="pacchetto-nome">Pacchetto 6 Sedute</div>
-          <div class="pacchetto-desc">Il percorso completo per risultati duraturi</div>
-          <div class="pacchetto-prezzo">Su richiesta</div>
-          <div class="pacchetto-prezzo-old">tariffa agevolata a pacchetto</div>
+          <div class="pacchetto-nome">Inguine + Ascelle + Gamba Intera</div>
+          <div class="pacchetto-desc">Il percorso completo sulle zone classiche</div>
+          <div class="pacchetto-prezzo">99,00 € <span style="font-size:15px; font-weight:600;">al mese</span></div>
+          <div class="pacchetto-nota">per 12 mesi</div>
           <ul class="pacchetto-features">
-            <li>6 sedute su area a scelta</li>
+            <li>Inguine</li>
+            <li>Ascelle</li>
+            <li>Gamba intera</li>
             <li>Consulenza iniziale gratuita</li>
-            <li>Piano personalizzato seduta per seduta</li>
+            <li>Una seduta ogni 4 settimane</li>
             <li>Protocollo pre/post incluso</li>
-            <li>Seduta di controllo finale</li>
           </ul>
-          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Prenota il Pacchetto</button></a>
+          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Richiedi Info</button></a>
         </div>
 
         <div class="pacchetto-card">
           <div class="pacchetto-nome">Total Body</div>
-          <div class="pacchetto-desc">Per chi vuole trattare più aree in un unico percorso</div>
-          <div class="pacchetto-prezzo">Su preventivo</div>
-          <div class="pacchetto-prezzo-old">massimo risparmio sulle aree multiple</div>
+          <div class="pacchetto-desc">Gamba intera, inguine, ascelle, braccia, baffetti e mento</div>
+          <div class="pacchetto-prezzo">169,00 € <span style="font-size:15px; font-weight:600;">al mese</span></div>
+          <div class="pacchetto-nota">per 12 mesi</div>
           <ul class="pacchetto-features">
-            <li>Aree multiple a scelta</li>
-            <li>6–8 sedute per area</li>
+            <li>Gamba intera</li>
+            <li>Inguine</li>
+            <li>Ascelle</li>
+            <li>Braccia</li>
+            <li>Baffetti</li>
+            <li>Mento</li>
             <li>Consulenza iniziale gratuita</li>
-            <li>Piano personalizzato completo</li>
-            <li>Massimo risparmio</li>
           </ul>
-          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Richiedi Preventivo</button></a>
+          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Richiedi Info</button></a>
         </div>
 
       </div>
-      <div class="wf-note" style="margin-top:20px;">I prezzi reali sono da inserire dal centro · Valutare se pubblicarli online o rimandare a richiesta preventivo</div>
+      <div class="pacchetti-gruppo">Pacchetto Laser Uomo</div>
+      <div class="pacchetti-grid due">
+
+        <div class="pacchetto-card">
+          <div class="pacchetto-nome">Petto + Schiena</div>
+          <div class="pacchetto-desc">Le due zone più richieste dagli uomini</div>
+          <div class="pacchetto-prezzo">119,00 € <span style="font-size:15px; font-weight:600;">al mese</span></div>
+          <div class="pacchetto-nota">per 12 mesi</div>
+          <ul class="pacchetto-features">
+            <li>Petto</li>
+            <li>Schiena</li>
+            <li>Consulenza iniziale gratuita</li>
+            <li>Una seduta ogni 4 settimane</li>
+            <li>Protocollo pre/post incluso</li>
+          </ul>
+          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Richiedi Info</button></a>
+        </div>
+
+        <div class="pacchetto-card">
+          <div class="pacchetto-nome">Petto + Schiena + Gambe</div>
+          <div class="pacchetto-desc">Il percorso completo</div>
+          <div class="pacchetto-prezzo">149,00 € <span style="font-size:15px; font-weight:600;">al mese</span></div>
+          <div class="pacchetto-nota">per 12 mesi</div>
+          <ul class="pacchetto-features">
+            <li>Petto</li>
+            <li>Schiena</li>
+            <li>Gambe</li>
+            <li>Consulenza iniziale gratuita</li>
+            <li>Una seduta ogni 4 settimane</li>
+            <li>Protocollo pre/post incluso</li>
+          </ul>
+          <a href="contatti.html" style="text-decoration:none;"><button class="btn-pacchetto">Richiedi Info</button></a>
+        </div>
+
+      </div>
     </section>
   </div>
 </div>
@@ -678,7 +708,7 @@
       <div class="faq-list">
         <div class="faq-item open">
           <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Quante sedute servono? <span class="faq-arrow">▼</span></div>
-          <div class="faq-answer">In media 6–8 sedute, con intervalli di 4–8 settimane. Il numero esatto dipende dal fototipo, dal colore del pelo e dall'area trattata. Lo definiamo insieme durante la consulenza gratuita.</div>
+          <div class="faq-answer">Mediamente <strong>10 sedute per le donne</strong> e <strong>12 per gli uomini</strong>, con una seduta <strong>ogni 4 settimane</strong> ed eventuali controlli ogni 3 settimane. Il numero esatto dipende dalla zona e dalle caratteristiche del pelo: lo definiamo insieme durante la consulenza gratuita.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">L'epilazione laser fa male? <span class="faq-arrow">▼</span></div>
@@ -686,7 +716,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Posso farlo d'estate o con la pelle abbronzata? <span class="faq-arrow">▼</span></div>
-          <div class="faq-answer">Sì. A differenza della luce pulsata (IPL), il laser EPILED 818 è utilizzabile anche su pelle abbronzata. Contattaci per una valutazione personalizzata.</div>
+          <div class="faq-answer">Sì. La pelle abbronzata non è di per sé un problema: va rispettata la tempistica di esposizione, quindi <strong>niente sole nei 4 giorni precedenti e nei 4 giorni successivi</strong> alla seduta. Contattaci per una valutazione personalizzata.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Funziona su tutti i colori di pelo? <span class="faq-arrow">▼</span></div>
@@ -702,7 +732,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Cosa devo fare prima e dopo il trattamento? <span class="faq-arrow">▼</span></div>
-          <div class="faq-answer">Prima: non cerare né decolorare il pelo nelle settimane precedenti (il rasoio è ok). Evitare l'esposizione solare intensa. Dopo: applicare crema lenitiva, evitare il sole diretto e il calore per 24–48 ore. Il nostro team ti fornirà tutte le indicazioni dettagliate.</div>
+          <div class="faq-answer">Prima: non cerare né decolorare il pelo nelle settimane precedenti (il rasoio è ok) e <strong>non esporsi al sole nei 4 giorni precedenti</strong>. Dopo: applicare crema lenitiva, evitare il calore per 24–48 ore e <strong>non esporsi al sole nei 4 giorni successivi</strong>. Il nostro team ti fornirà tutte le indicazioni dettagliate.</div>
         </div>
       </div>
     </section>
@@ -745,24 +775,12 @@
             </select>
           </div>
           <div class="form-field">
-            <label>Area da trattare</label>
-            <select>
-              <option>-- Seleziona --</option>
-              <option>Ascelle</option>
-              <option>Gambe complete</option>
-              <option>Inguine / Brasiliana</option>
-              <option>Labbro superiore</option>
-              <option>Total body</option>
-              <option>Altro / Più aree</option>
-            </select>
-          </div>
-          <div class="form-field">
             <label>Messaggio (opzionale)</label>
             <textarea placeholder="Scrivi qui eventuali domande o preferenze di orario..."></textarea>
           </div>
 
           <button class="btn-form">Invia Richiesta →</button>
-          <div class="form-privacy">Inviando accetti la nostra <u>Privacy Policy</u>. I tuoi dati non saranno condivisi con terzi.</div>
+          <div class="form-privacy">Inviando accetti la nostra <a href="https://www.iubenda.com/privacy-policy/49388135" target="_blank" rel="noopener" style="color:inherit;">Privacy Policy</a>. I tuoi dati non saranno condivisi con terzi.</div>
         </div>
 
         <!-- TREATWELL + ALTRI CANALI -->
@@ -783,8 +801,8 @@
           <div class="treatwell-box">
             <div class="form-title" style="font-size:16px;">Preferisci contattarci direttamente?</div>
             <div class="tw-channels">
-              <button class="btn-wa"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-3px;margin-right:7px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button>
-              <button class="btn-tel"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-2px;margin-right:7px"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama — 031 4682567</button>
+              <button class="btn-wa" onclick="lsCallChoice(event)"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-3px;margin-right:7px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button>
+              <button class="btn-tel" onclick="lsCallChoice(event)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-2px;margin-right:7px"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama — scegli la sede</button>
               <button class="btn-tel">info@lovesun.it</button>
             </div>
           </div>
@@ -829,8 +847,8 @@
   <p class="wf">Prenota la tua prima seduta o richiedi una consulenza gratuita e senza impegno. Il nostro team è pronto ad accompagnarti.</p>
   <div class="cta-finale-actions">
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-finale-primary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Prenota Ora</button></a>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
-    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="window.location.href='tel:0314682567'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
+    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="lsCallChoice(event)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
   </div>
 </div>
 <div class="section-divider">FOOTER</div>
@@ -844,7 +862,7 @@
       <div class="footer-social">
         <a href="https://www.facebook.com/lovesunsolarium/" target="_blank" rel="noopener" class="social-icon" title="Facebook" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.3-.04-1.3-.12-2.4-.12-2.4 0-4 1.46-4 4.14v2.31H7.5V13h2.8v8h3.2z"/></svg></a>
         <a href="https://www.instagram.com/lovesun.beauty?igsh=MW90b3pvNXBhYWFtNA==" target="_blank" rel="noopener" class="social-icon" title="Instagram" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" target="_blank" rel="noopener" class="social-icon" title="TikTok — link da inserire" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
+        <a href="https://www.tiktok.com/@lovesunsolariumofficial" target="_blank" rel="noopener" class="social-icon" title="TikTok" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -863,22 +881,22 @@
       <div class="footer-col-title">Love Sun Beauty Bregnano</div>
       <p>Via per Lazzate 7<br>22070 Bregnano (CO)</p>
       <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Lun–Sab 9:00–21:00<br>Dom 9:00–17:00</p>
+      <p>Lun–Ven 8:30–21:00<br>Sab 8:30–19:00<br>Dom 9:00–15:00</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Love Sun Beauty Carugate</div>
       <p>Via del Ginestrino 16<br>20061 Carugate (MI)</p>
-      <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Mar/Mer/Ven/Sab 9:00–20:00<br>Gio 9:00–21:00<br>Lun e Dom: Chiuso</p>
+      <p>02 7709 5069<br>WhatsApp <span style="color:#e08; font-weight:700;">da inserire</span><br>info@lovesun.it</p>
+      <p>Mar–Mer 9:00–20:00<br>Gio 9:00–21:00<br>Ven 9:00–19:00<br>Sab 9:00–18:00<br>Lun e Dom: Chiuso</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Cookie Policy</span>
+    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; <a href="https://www.iubenda.com/privacy-policy/49388135" target="_blank" rel="noopener" style="color:inherit;">Privacy Policy</a> &nbsp;·&nbsp; <!-- TODO: il documento Cookie Policy non esiste su iubenda (49388135/cookie-policy restituisce "Documento inesistente"). Va pubblicato dalla dashboard iubenda, poi sostituire questo span con: <a href="https://www.iubenda.com/privacy-policy/49388135/cookie-policy" target="_blank" rel="noopener" style="color:inherit;">Cookie Policy</a> --><span title="Documento da pubblicare su iubenda">Cookie Policy</span></span>
     <span>P.IVA: 03959640131</span>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/393473983337" target="_blank" rel="noopener" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
+<a class="wa-float" href="contatti.html" onclick="lsCallChoice(event)" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
 
 <script src="site.js"></script>
 

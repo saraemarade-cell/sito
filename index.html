@@ -630,8 +630,8 @@
     <span><a href="contatti.html" style="color:inherit;text-decoration:none;">Contatti</a></span>
   </nav>
   <div class="header-actions">
-    <button class="btn-ghost" onclick="window.location.href='tel:0314682567'" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
+    <button class="btn-ghost" onclick="lsCallChoice(event)" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-primary">Prenota Ora</button></a>
   </div>
 </header>
@@ -694,7 +694,7 @@
       <div class="card-img ls-photo"><img src="img/home/homeepillaser.webp" alt="Epilazione laser"></div>
       <div class="card-body">
         <h3 class="wf">Epilazione Laser</h3>
-        <p class="wf" style="font-size:13px;">Risultati duraturi su tutti i fototipi, anche su pelle abbronzata. Tecnologia EPILED 818.</p>
+        <p class="wf" style="font-size:13px;">Laser a diodo: riduzione permanente sui peli scuri e pigmentati, fino al 90%.</p>
         <a href="epilazione-laser.html" class="card-cta" style="text-decoration:none;">Scopri il trattamento →</a>
       </div>
     </div>
@@ -703,7 +703,7 @@
       <div class="card-img ls-photo"><img src="img/home/hometshape.webp" alt="Trattamenti T-Shape"></div>
       <div class="card-body">
         <h3 class="wf">Trattamenti T-Shape</h3>
-        <p class="wf" style="font-size:13px;">T-Shape 2, radiofrequenza, lipolaser e mesoporazione. Rimodella, rassoda, ringiovanisci.</p>
+        <p class="wf" style="font-size:13px;">T-Shape 2: un unico trattamento che combina più tecnologie. Rimodella, rassoda, ringiovanisce.</p>
         <a href="trattamenti-corpo.html" class="card-cta" style="text-decoration:none;">Scopri il trattamento →</a>
       </div>
     </div>
@@ -739,7 +739,7 @@
       <div class="card-img ls-photo"><img src="img/home/homemassaggi.webp" alt="Massaggi"></div>
       <div class="card-body">
         <h3 class="wf">Massaggi</h3>
-        <p class="wf" style="font-size:13px;">Rilassanti, decontratturanti, linfodrenanti, Balinese, Ayurvedico, Hot Stone, Candle Massage e Scrub corpo.</p>
+        <p class="wf" style="font-size:13px;">Rilassante, connettivale, linfodrenaggio metodo Vodder, Candle Massage, Rituale Relax con Piume e Scrub corpo.</p>
         <a href="massaggi.html" class="card-cta" style="text-decoration:none;">Scopri il trattamento →</a>
       </div>
     </div>
@@ -748,7 +748,7 @@
       <div class="card-img ls-photo"><img src="img/home/homepuliziaviso.webp" alt="Pulizia viso"></div>
       <div class="card-body">
         <h3 class="wf">Pulizia Viso</h3>
-        <p class="wf" style="font-size:13px;">Trattamenti avanzati per ogni tipo di pelle: pulizia classica, protocolli specifici, anti-age al collagene e vitamina C.</p>
+        <p class="wf" style="font-size:13px;">Si parte dallo Skin Test Viso, in entrambe le sedi. Poi Pulizia Base, Specifica, Profonda con ultrasuoni e Hydro, Vitamina C, Peptidi e Fili di Collagene.</p>
         <a href="pulizia-viso.html" class="card-cta" style="text-decoration:none;">Scopri il trattamento →</a>
       </div>
     </div>
@@ -793,8 +793,8 @@
       </div>
       <div style="text-align:center; flex:1; min-width:120px;">
         <div style="font-size:26px; margin-bottom:6px;">⏰</div>
-        <div style="font-size:13px; font-weight:700; color:#222;">Orari flessibili</div>
-        <div style="font-size:11px; color:#888; margin-top:2px;">Aperto fino alle 21:00</div>
+        <div style="font-size:13px; font-weight:700; color:#222;">Aperti 7 giorni su 7</div>
+        <div style="font-size:11px; color:#888; margin-top:2px;">Bregnano anche la domenica</div>
       </div>
       <div style="text-align:center; flex:1; min-width:120px; cursor:pointer;" onclick="document.getElementById('modal-fedelta').style.display='flex'">
         <div style="font-size:26px; margin-bottom:6px;">🎁</div>
@@ -951,7 +951,7 @@
             <span class="faq-arrow">▼</span>
           </div>
           <div class="faq-answer">
-            Il numero di sedute varia in base al fototipo, al colore del pelo e all'area trattata. In media si consigliano 6–8 sedute per risultati duraturi. Durante la consulenza dedicata il nostro team definirà un programma personalizzato per te.
+            Mediamente <strong>10 sedute per le donne</strong> e <strong>12 per gli uomini</strong>, con una seduta <strong>ogni 4 settimane</strong> ed eventuali controlli ogni 3 settimane. Il numero esatto dipende dalla zona e dalle caratteristiche del pelo: lo definiamo insieme durante la consulenza dedicata.
           </div>
         </div>
 
@@ -961,7 +961,7 @@
             <span class="faq-arrow">▼</span>
           </div>
           <div class="faq-answer">
-            Sì. Il T-Shape 2 combina radiofrequenza, aspirazione vacuum e laser LLLT per agire sulla cellulite, migliorare la microcircolazione e levigare la pelle. È riconosciuto dalla FDA per sicurezza ed efficacia.
+            Sì. T-Shape 2 è un <strong>unico trattamento</strong> che combina contemporaneamente più tecnologie nella stessa seduta: agisce sulla cellulite, migliora la microcircolazione e leviga la pelle. La durata va da 30 minuti a 1 ora e 30 in base alle zone trattate.
           </div>
         </div>
 
@@ -980,7 +980,7 @@
       <div style="margin-top:28px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
         <a href="faq.html" style="font-size:15px; font-weight:700; color:#111; border-bottom:2px solid #111; text-decoration:none;">Leggi tutte le domande frequenti →</a>
         <span style="font-size:13px; color:#aaa;">oppure</span>
-        <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-lg-secondary" style="font-size:13px; padding:10px 20px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-3px;margin-right:7px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
+        <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-lg-secondary" style="font-size:13px; padding:10px 20px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-3px;margin-right:7px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
       </div>
 
     </section>
@@ -1002,8 +1002,8 @@
         <div style="font-size:15px; font-weight:700; color:#111; margin-bottom:10px;">Love Sun Beauty Bregnano</div>
         <div style="font-size:13px; color:#555; line-height:1.8;">
           Via per Lazzate 7, 22070 Bregnano (CO)<br>
-          031 4682567 · WhatsApp +39 347 3983337<br>
-          <span style="color:#888;">Lun–Sab: 9:00–21:00 · Dom: 9:00–17:00</span>
+          02 7709 5069 · WhatsApp <span style="color:#e08; font-weight:700;">da inserire</span><br>
+          <span style="color:#888;">Lun–Ven: 8:30–21:00 · Sab: 8:30–19:00 · Dom: 9:00–15:00</span>
         </div>
         <div style="display:flex; gap:10px; margin-top:16px;">
           <a href="contatti.html" style="flex:1; text-decoration:none;"><button style="width:100%; padding:10px; background:#222; color:#fff; border:none; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer;">Prenota</button></a>
@@ -1019,8 +1019,8 @@
         <div style="font-size:15px; font-weight:700; color:#111; margin-bottom:10px;">Love Sun Beauty Carugate</div>
         <div style="font-size:13px; color:#555; line-height:1.8;">
           Via del Ginestrino 16, 20061 Carugate (MI)<br>
-          031 4682567 · WhatsApp +39 347 3983337<br>
-          <span style="color:#888;">Mar/Mer/Ven/Sab: 9–20 · Gio: 9–21 · Lun/Dom: Chiuso</span>
+          02 7709 5069 · WhatsApp <span style="color:#e08; font-weight:700;">da inserire</span><br>
+          <span style="color:#888;">Mar/Mer: 9–20 · Gio: 9–21 · Ven: 9–19 · Sab: 9–18 · Lun/Dom: Chiuso</span>
         </div>
         <div style="display:flex; gap:10px; margin-top:16px;">
           <a href="contatti.html" style="flex:1; text-decoration:none;"><button style="width:100%; padding:10px; background:#222; color:#fff; border:none; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer;">Prenota</button></a>
@@ -1039,8 +1039,8 @@
   <p class="wf">Prenota il trattamento più adatto o richiedi una consulenza dedicata. Il nostro team è a tua disposizione.</p>
   <div class="cta-finale-actions">
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-finale-primary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Prenota Ora</button></a>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
-    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="window.location.href='tel:0314682567'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
+    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="lsCallChoice(event)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
   </div>
 </div>
 <div class="section-divider">FOOTER</div>
@@ -1054,7 +1054,7 @@
       <div class="footer-social">
         <a href="https://www.facebook.com/lovesunsolarium/" target="_blank" rel="noopener" class="social-icon" title="Facebook" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.3-.04-1.3-.12-2.4-.12-2.4 0-4 1.46-4 4.14v2.31H7.5V13h2.8v8h3.2z"/></svg></a>
         <a href="https://www.instagram.com/lovesun.beauty?igsh=MW90b3pvNXBhYWFtNA==" target="_blank" rel="noopener" class="social-icon" title="Instagram" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" target="_blank" rel="noopener" class="social-icon" title="TikTok — link da inserire" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
+        <a href="https://www.tiktok.com/@lovesunsolariumofficial" target="_blank" rel="noopener" class="social-icon" title="TikTok" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -1073,23 +1073,23 @@
       <div class="footer-col-title">Love Sun Beauty Bregnano</div>
       <p>Via per Lazzate 7<br>22070 Bregnano (CO)</p>
       <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Lun–Sab 9:00–21:00<br>Dom 9:00–17:00</p>
+      <p>Lun–Ven 8:30–21:00<br>Sab 8:30–19:00<br>Dom 9:00–15:00</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Love Sun Beauty Carugate</div>
       <p>Via del Ginestrino 16<br>20061 Carugate (MI)</p>
-      <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Mar/Mer/Ven/Sab 9:00–20:00<br>Gio 9:00–21:00<br>Lun e Dom: Chiuso</p>
+      <p>02 7709 5069<br>WhatsApp <span style="color:#e08; font-weight:700;">da inserire</span><br>info@lovesun.it</p>
+      <p>Mar–Mer 9:00–20:00<br>Gio 9:00–21:00<br>Ven 9:00–19:00<br>Sab 9:00–18:00<br>Lun e Dom: Chiuso</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Cookie Policy</span>
+    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; <a href="https://www.iubenda.com/privacy-policy/49388135" target="_blank" rel="noopener" style="color:inherit;">Privacy Policy</a> &nbsp;·&nbsp; <!-- TODO: il documento Cookie Policy non esiste su iubenda (49388135/cookie-policy restituisce "Documento inesistente"). Va pubblicato dalla dashboard iubenda, poi sostituire questo span con: <a href="https://www.iubenda.com/privacy-policy/49388135/cookie-policy" target="_blank" rel="noopener" style="color:inherit;">Cookie Policy</a> --><span title="Documento da pubblicare su iubenda">Cookie Policy</span></span>
     <span>P.IVA: 03959640131</span>
   </div>
 </footer>
 
 <!-- ════════════════════════════════════════ FLOATING WA ════════════════════════════════════════ -->
-<a class="wa-float" href="https://wa.me/393473983337" target="_blank" rel="noopener" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
+<a class="wa-float" href="contatti.html" onclick="lsCallChoice(event)" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
 
 <script src="site.js"></script>
 

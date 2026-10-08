@@ -166,8 +166,8 @@
     <a href="contatti.html" style="color:inherit;text-decoration:none;">Contatti</a>
   </nav>
   <div class="header-actions">
-    <button class="btn-ghost" onclick="window.location.href='tel:0314682567'" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
+    <button class="btn-ghost" onclick="lsCallChoice(event)" style="display:inline-flex;align-items:center;gap:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-ghost" style="display:inline-flex;align-items:center;gap:7px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.5-.8-1-.9-1.3-.1-.2 0-.4.1-.5l.4-.4c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>WhatsApp</button></a>
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-primary">Prenota Ora</button></a>
   </div>
 </header>
@@ -202,12 +202,8 @@
     </ul>
     <div class="sidebar-box">
       <h4>Non hai trovato risposta?</h4>
-      <p>
-        <a href="tel:031 4682567">031 4682567</a><br>
-        <a href="tel:+39 347 3983337">+39 347 3983337</a><br>
-        <a href="mailto:info@lovesun.it">info@lovesun.it</a>
-      </p>
-      <a class="btn-wa" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-3px;margin-right:7px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>WhatsApp</a>
+      <p>Scrivici o chiama la sede che ti interessa: trovi i contatti di Bregnano e Carugate nella <a href="contatti.html">pagina Contatti</a>.</p>
+      <a class="btn-wa" href="contatti.html" onclick="lsCallChoice(event)"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;display:inline-block;vertical-align:-3px;margin-right:7px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>WhatsApp</a>
     </div>
     <div class="wf-note" style="margin-top:12px;">Sidebar sticky · scroll-spy sulle sezioni</div>
   </aside>
@@ -223,11 +219,17 @@
       <div class="faq-item open">
         <div class="faq-q">Come posso prenotare un trattamento? <span class="faq-toggle">+</span></div>
         <div class="faq-a">
-          Puoi prenotare in tre modi:
+          <strong>Online:</strong> compila il modulo su questa pagina o sulla pagina del trattamento.<br><br>
+          Oppure contatta direttamente la sede che preferisci:<br><br>
+          <strong>LOVESUN Bregnano (CO)</strong>
           <ul>
-            <li><strong>Online:</strong> compila il modulo su questa pagina o sulla pagina del trattamento.</li>
-            <li><strong>Telefono:</strong> chiama il <strong>031 4682567</strong> o il <strong>+39 347 3983337</strong>.</li>
-            <li><strong>WhatsApp:</strong> scrivici al +39 347 3983337.</li>
+            <li>Telefono: <strong>031 4682567</strong></li>
+            <li>WhatsApp: <strong>+39 347 3983337</strong></li>
+          </ul>
+          <strong>LOVESUN Carugate (MI)</strong>
+          <ul>
+            <li>Telefono: <strong>02 7709 5069</strong></li>
+            <li>WhatsApp: <strong data-da-completare="whatsapp Carugate">numero da inserire</strong></li>
           </ul>
           Ti ricontattiamo entro 24 ore per confermare data, ora e sede.
         </div>
@@ -240,12 +242,23 @@
 
       <div class="faq-item">
         <div class="faq-q">Come faccio a cancellare o spostare un appuntamento? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Ti chiediamo di avvisarci almeno <strong>24 ore prima</strong>. Puoi cancellare o spostare telefonando o scrivendo su WhatsApp.</div>
+        <div class="faq-a">Ti chiediamo di avvisarci <strong>almeno 24 ore prima</strong>, telefonando o scrivendo su WhatsApp alla sede dell'appuntamento. Oltre questo termine si applica la nostra policy di cancellazione, spiegata nella domanda successiva.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Qual è la policy di cancellazione degli appuntamenti? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">
+          A seguito dell'elevato numero di disdette e mancate presentazioni, e per rispetto del lavoro delle nostre operatrici, dei clienti in lista d'attesa e delle numerose richieste che riceviamo quotidianamente, LOVESUN applica una policy di cancellazione accettata al momento della prenotazione.<br><br>
+          In caso di cancellazione comunicata <strong>tra le 24 ore e le 8 ore</strong> precedenti l'appuntamento, sarà dovuto un importo pari al <strong>50%</strong> del valore del/dei trattamento/i prenotato/i.<br><br>
+          In caso di cancellazione comunicata a <strong>meno di 8 ore</strong> dall'appuntamento, oppure in caso di <strong>mancata presentazione</strong>, sarà dovuto un importo pari al <strong>100%</strong> del valore del/dei trattamento/i prenotato/i.<br><br>
+          L'importo dovrà essere saldato tramite pagamento by link inviato direttamente dalla reception.<br><br>
+          La prenotazione dell'appuntamento comporta l'accettazione della presente policy di cancellazione.
+        </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Devo pagare per prenotare? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">No, la prenotazione è gratuita e senza impegno. Il pagamento avviene direttamente in sede, dopo il trattamento.</div>
+        <div class="faq-a">Nella maggior parte dei casi no: la prenotazione è gratuita e il pagamento avviene in sede dopo il trattamento. Per gli appuntamenti di <strong>durata superiore alle 2 ore</strong> viene però richiesto un <strong>acconto pari al 20%</strong> del valore della prenotazione.</div>
       </div>
 
       <div class="faq-item">
@@ -261,22 +274,22 @@
 
       <div class="faq-item">
         <div class="faq-q">Quante sedute sono necessarie? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">In media si consigliano <strong>6–8 sedute</strong>, intervallate di 4–8 settimane, seguendo il ciclo di crescita del pelo. Il numero varia in base alla zona, al fototipo e alla densità dei peli. Durante la consulenza iniziale ti indicheremo il percorso personalizzato.</div>
+        <div class="faq-a">Mediamente <strong>10 sedute per le donne</strong> e <strong>12 sedute per gli uomini</strong>, con una <strong>frequenza di una seduta ogni 4 settimane</strong>. Possono essere previsti controlli ogni 3 settimane. Il numero varia in base alla zona e alle caratteristiche del pelo: durante la consulenza iniziale ti indichiamo il percorso personalizzato.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Che tecnologia usate? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Utilizziamo il laser <strong>EPILED 818</strong> a diodo 808nm con sistema di raffreddamento integrato — la tecnologia più avanzata per l'epilazione permanente. Efficace, sicura e adatta a tutti i fototipi.</div>
+        <div class="faq-a">Utilizziamo un <strong>laser a diodo</strong> (EPILED 818, 808nm) con sistema di raffreddamento integrato. Il laser a diodo lavora <strong>principalmente sui peli pigmentati, quindi scuri</strong>: è il pigmento del pelo che assorbe la luce del laser. I <strong>peli bianchi, rossi o privi di pigmento sufficiente non vengono letti correttamente</strong> dal laser e non rispondono al trattamento. In consulenza valutiamo sempre il tuo caso specifico prima di partire.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Fa male? Il laser è sicuro? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">La sensazione è simile a un leggero pizzico. Il sistema di raffreddamento integrato dell'EPILED 818 riduce significativamente il fastidio. Il trattamento è sicuro se eseguito da personale qualificato, che valuterà sempre la compatibilità con il tuo fototipo.</div>
+        <div class="faq-a">La sensazione è simile a un leggero pizzico. Il sistema di raffreddamento integrato riduce significativamente il fastidio. Il trattamento è sicuro se eseguito da personale qualificato, che valuta sempre in consulenza le caratteristiche della pelle e del pelo.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Posso fare il laser se sono abbronzata? <span class="faq-toggle">+</span></div>
-        <div class="faq-a"><strong>No.</strong> L'abbronzatura aumenta il rischio di effetti indesiderati. Evita l'esposizione solare per almeno 4 settimane prima e dopo ogni seduta. Il laser è ideale nei mesi autunnali e invernali.</div>
+        <div class="faq-a">La pelle abbronzata <strong>non è di per sé una controindicazione</strong>: quello che conta è rispettare le tempistiche di esposizione. Non esporti al sole nei <strong>4 giorni precedenti</strong> e nei <strong>4 giorni successivi</strong> alla seduta. Se rispetti queste tempistiche, il trattamento si può fare anche in estate.</div>
       </div>
 
       <div class="faq-item">
@@ -285,8 +298,8 @@
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">Qual è la differenza tra laser EPILED 818 e luce pulsata IPL? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Il laser EPILED 818 è un laser a diodo a lunghezza d'onda precisa (808nm), molto più efficace e sicuro dell'IPL. La luce pulsata IPL è uno spettro di luce non coerente, meno preciso e con più controindicazioni.</div>
+        <div class="faq-q">Qual è la differenza tra laser a diodo e luce pulsata IPL? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Il laser a diodo lavora su una lunghezza d'onda precisa (808nm), più efficace e selettiva. La luce pulsata IPL è uno spettro di luce non coerente, meno preciso e con più controindicazioni.</div>
       </div>
     </div>
 
@@ -296,8 +309,8 @@
       <div class="faq-section-title">💆 Trattamenti Corpo</div>
 
       <div class="faq-item">
-        <div class="faq-q">Cos'è il T-Shape e come funziona? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">T-Shape combina quattro tecnologie: <strong>radiofrequenza, ultrasuoni ad alta intensità (HIFU), luce LED e drenaggio linfatico meccanico</strong>. Agisce su cellulite, rilassamento cutaneo e modellamento corporeo. I risultati si vedono dal primo ciclo di sedute.</div>
+        <div class="faq-q">Cos'è il T-Shape 2 e come funziona? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">T-Shape 2 è un <strong>unico trattamento</strong>, non una somma di trattamenti separati: il macchinario combina contemporaneamente più tecnologie nella stessa seduta, agendo insieme su cellulite, rilassamento cutaneo e modellamento corporeo. La durata va da <strong>30 minuti a 1 ora e 30</strong> in base alle zone trattate.</div>
       </div>
 
       <div class="faq-item">
@@ -324,14 +337,21 @@
       <div class="faq-item">
         <div class="faq-q">Che apparecchi avete? <span class="faq-toggle">+</span></div>
         <div class="faq-a">
-          6 apparecchi tra le due sedi:
+          Gli apparecchi sono diversi da sede a sede.
+          <strong>Bregnano:</strong>
           <ul>
-            <li><strong>Lampada viso quadrifacciale</strong> — entrambe le sedi, 13 min</li>
-            <li><strong>Lampada viso esafacciale</strong> — entrambe le sedi, 13 min</li>
-            <li><strong>Doccia STAND-UP bassa pressione</strong> — entrambe le sedi, 13 min</li>
-            <li><strong>Doccia V-400 alta pressione</strong> — entrambe le sedi, 13 min</li>
-            <li><strong>Lettino ERGOLINE bassa pressione</strong> — solo Bregnano, 15 min</li>
-            <li><strong>Lettino C-VENTI alta pressione</strong> — solo Carugate, 15 min</li>
+            <li>Lampada viso quadrifacciale — fino a 15 min</li>
+            <li>Lampada viso esafacciale — fino a 15 min</li>
+            <li>Doccia STAND-UP bassa pressione — fino a 15 min</li>
+            <li>Doccia V-400 alta pressione — fino a 15 min</li>
+            <li>Lettino ERGOLINE bassa pressione — fino a 30 min</li>
+          </ul>
+          <strong>Carugate:</strong>
+          <ul>
+            <li>2 lampade viso esafacciali — fino a 15 min</li>
+            <li>Doccia STAND-UP bassa pressione — fino a 15 min</li>
+            <li>Doccia V-400 alta pressione — fino a 15 min</li>
+            <li>Lettino C-VENTI alta pressione — fino a 30 min</li>
           </ul>
         </div>
       </div>
@@ -353,7 +373,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Avete abbonamenti per il solarium? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Sì. Offriamo pacchetti da 10 ingressi e abbonamenti mensili illimitati. Consulta la <a href="solarium.html">pagina Solarium</a> o le <a href="offerte.html">Offerte del Mese</a>.</div>
+        <div class="faq-a">Sì. Offriamo pacchetti da 10 ingressi. Consulta la <a href="solarium.html">pagina Solarium</a> o le <a href="offerte.html">Offerte del Mese</a>.</div>
       </div>
     </div>
 
@@ -364,7 +384,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Che tipo di cerette usate? <span class="faq-toggle">+</span></div>
-        <div class="faq-a"><strong>Cera liposolubile</strong> per le zone delicate (inguine, ascelle) e <strong>cera elastica</strong> per le zone più ampie (gambe, braccia). La scelta dipende dalla zona e dalla sensibilità della pelle.</div>
+        <div class="faq-a">Usiamo <strong>cera liposolubile</strong> e <strong>cera brasiliana</strong>. La scelta dipende dalla zona e dalla sensibilità della pelle.</div>
       </div>
 
       <div class="faq-item">
@@ -374,7 +394,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Quali trattamenti viso offrite? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Pulizia viso profonda, trattamento purificante per pelle grassa, trattamento idratante intensivo e trattamento anti-età. Tutti includono analisi della pelle, detersione, esfoliazione, estratti e maschera.</div>
+        <div class="faq-a">Si parte sempre dallo <strong>Skin Test Viso</strong>, disponibile in entrambe le sedi: è la base della consulenza e serve a capire quale trattamento ha senso per la tua pelle. Da lì scegliamo tra <strong>Pulizia Viso Base</strong>, <strong>Pulizia Viso Specifica</strong>, <strong>Pulizia Viso Profonda con ultrasuoni e Hydro</strong>, <strong>Trattamento Vitamina C</strong>, <strong>Trattamento Peptidi</strong> e <strong>Trattamento Fili di Collagene</strong>.</div>
       </div>
 
       <div class="faq-item">
@@ -384,7 +404,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Che tipi di massaggio offrite? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Massaggio <strong>rilassante</strong>, <strong>decontratturante</strong> (ideale per chi pratica sport), <strong>drenante</strong> (ritenzione idrica, gambe pesanti) e <strong>localizzato</strong> (schiena, collo, gambe).</div>
+        <div class="faq-a">Massaggio <strong>rilassante</strong>, <strong>connettivale</strong> (indicato anche sugli inestetismi della cellulite), <strong>linfodrenaggio metodo Vodder</strong>, <strong>Candle Massage</strong> con candele a base di burro di karité e <strong>Rituale Relax con Piume</strong>. Ogni massaggio dura 50 minuti, con circa un'ora di occupazione della cabina. La frequenza non è standard: viene consigliata dopo una valutazione personalizzata in cabina.</div>
       </div>
     </div>
 
@@ -395,7 +415,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Quali metodi di pagamento accettate? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Contanti, carte di credito/debito e bancomat. Il pagamento avviene sempre in sede dopo il trattamento. Nessun pagamento anticipato per la prenotazione.</div>
+        <div class="faq-a">Contanti, carte di credito/debito e bancomat. Il pagamento avviene in sede dopo il trattamento. Per gli appuntamenti di <strong>durata superiore alle 2 ore</strong> viene richiesto un <strong>acconto pari al 20%</strong> del valore della prenotazione.</div>
       </div>
 
       <div class="faq-item">
@@ -432,8 +452,8 @@
       <div class="faq-item">
         <div class="faq-q">Quali sono gli orari di apertura? <span class="faq-toggle">+</span></div>
         <div class="faq-a">
-          <strong>Bregnano:</strong> Lun–Sab 9:00–21:00 | Dom 9:00–17:00<br><br>
-          <strong>Carugate:</strong> Mar/Mer/Ven/Sab 9:00–20:00 | Gio 9:00–21:00 | Lun e Dom: chiuso
+          <strong>Bregnano:</strong> Lun–Ven 8:30–21:00 | Sab 8:30–19:00 | Dom 9:00–15:00<br><br>
+          <strong>Carugate:</strong> Mar–Mer 9:00–20:00 | Gio 9:00–21:00 | Ven 9:00–19:00 | Sab 9:00–18:00 | Lun e Dom: chiuso
         </div>
       </div>
 
@@ -492,8 +512,8 @@
   <p>Il nostro team è qui per aiutarti a scegliere il trattamento più adatto a te.</p>
   <div class="cta-finale-actions">
     <a href="contatti.html" style="text-decoration:none;"><button class="btn-finale-primary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Prenota Ora</button></a>
-    <a href="https://wa.me/393473983337" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
-    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="window.location.href='tel:0314682567'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
+    <a href="contatti.html" onclick="lsCallChoice(event)" style="text-decoration:none;"><button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg>Scrivici su WhatsApp</button></a>
+    <button class="btn-finale-secondary" style="display:inline-flex;align-items:center;gap:8px;" onclick="lsCallChoice(event)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>Chiama Ora</button>
   </div>
 </div>
 
@@ -506,7 +526,7 @@
       <div class="footer-social">
         <a href="https://www.facebook.com/lovesunsolarium/" target="_blank" rel="noopener" class="social-icon" title="Facebook" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.3-.04-1.3-.12-2.4-.12-2.4 0-4 1.46-4 4.14v2.31H7.5V13h2.8v8h3.2z"/></svg></a>
         <a href="https://www.instagram.com/lovesun.beauty?igsh=MW90b3pvNXBhYWFtNA==" target="_blank" rel="noopener" class="social-icon" title="Instagram" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" target="_blank" rel="noopener" class="social-icon" title="TikTok — link da inserire" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
+        <a href="https://www.tiktok.com/@lovesunsolariumofficial" target="_blank" rel="noopener" class="social-icon" title="TikTok" style="text-decoration:none; display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.2 1.5 3.5 3.6 3.7v2.5c-1.2.1-2.4-.3-3.6-1v5.7c0 3.2-2.3 5.4-5.3 5.4-2.7 0-4.9-2-4.9-4.8 0-2.9 2.4-4.9 5.4-4.6v2.6c-.4-.1-.8-.2-1.2-.2-1.2 0-2.2.9-2.2 2.1s1 2.2 2.3 2.2c1.3 0 2.1-1 2.1-2.4V3h3.5z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -525,23 +545,23 @@
       <div class="footer-col-title">Love Sun Beauty Bregnano</div>
       <p>Via per Lazzate 7<br>22070 Bregnano (CO)</p>
       <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Lun–Sab 9:00–21:00<br>Dom 9:00–17:00</p>
+      <p>Lun–Ven 8:30–21:00<br>Sab 8:30–19:00<br>Dom 9:00–15:00</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Love Sun Beauty Carugate</div>
       <p>Via del Ginestrino 16<br>20061 Carugate (MI)</p>
-      <p>031 4682567<br>WhatsApp +39 347 3983337<br>info@lovesun.it</p>
-      <p>Mar/Mer/Ven/Sab 9:00–20:00<br>Gio 9:00–21:00<br>Lun e Dom: Chiuso</p>
+      <p>02 7709 5069<br>WhatsApp <span style="color:#e08; font-weight:700;">da inserire</span><br>info@lovesun.it</p>
+      <p>Mar–Mer 9:00–20:00<br>Gio 9:00–21:00<br>Ven 9:00–19:00<br>Sab 9:00–18:00<br>Lun e Dom: Chiuso</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Cookie Policy</span>
+    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; <a href="https://www.iubenda.com/privacy-policy/49388135" target="_blank" rel="noopener" style="color:inherit;">Privacy Policy</a> &nbsp;·&nbsp; <!-- TODO: il documento Cookie Policy non esiste su iubenda (49388135/cookie-policy restituisce "Documento inesistente"). Va pubblicato dalla dashboard iubenda, poi sostituire questo span con: <a href="https://www.iubenda.com/privacy-policy/49388135/cookie-policy" target="_blank" rel="noopener" style="color:inherit;">Cookie Policy</a> --><span title="Documento da pubblicare su iubenda">Cookie Policy</span></span>
     <span>P.IVA: 03959640131</span>
   </div>
 </footer>
 
 <!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/393473983337" target="_blank" rel="noopener" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
+<a class="wa-float" href="contatti.html" onclick="lsCallChoice(event)" title="WhatsApp" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" style="display:block"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.8-.11-.42-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.59.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.69-.17 1.37z"/></svg></a>
 
 <script>
   document.querySelectorAll('.faq-q').forEach(q => {
